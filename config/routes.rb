@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'static#home'
+  get '/login' => 'sessions#login'
+  post '/login' => 'sessions#create'
   resources :genres
   resources :gigs
   resources :venues

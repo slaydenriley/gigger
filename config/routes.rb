@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   root 'static#home'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  get '/signup' => 'users#new'
   delete '/session', to: 'sessions#destroy'
 
   resources :genres
   resources :gigs
   resources :venues
   resources :bands
-  resources :users, only: [:new, :create, :show]
+  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

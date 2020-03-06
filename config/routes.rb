@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'static#home'
   resources :genres
   resources :gigs
   resources :venues

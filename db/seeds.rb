@@ -29,3 +29,16 @@ newgig = Gig.create(
   band: npr,
   venue: tophat
 )
+
+wilma = Venue.create(
+  name: "Wilma Theatre",
+  email: "booking@thewilma.com",
+  description: "Music theatre in Missoula Montana"
+)
+
+nextgig = Gig.create(
+  name: "NPR @ The Wilma",
+  date: "2020-05-22 21:00:00",
+  band: npr,
+  venue: wilma
+)

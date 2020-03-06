@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by_id(user_params)
   end
 
   def update
@@ -15,6 +16,9 @@ class UsersController < ApplicationController
   end
 
   def login
+  end
+
+  def index
   end
 
 end

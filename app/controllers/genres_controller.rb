@@ -12,5 +12,5 @@ class GenresController < ApplicationController
   end
 
   def delete
-  ends
+  end
 end

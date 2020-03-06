@@ -1,16 +1,16 @@
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
+<h1>Create an Account</h1>
+<%= form_for User.new do |f| %>
+  <%= f.label :name %><br/>
   <%= f.text_field :name %><br/>
-  <%= f.label :email %>
+  <%= f.label :email %><br/>
   <%= f.email_field :email %><br/>
-  <%= f.label :description %>
+  <%= f.label :description %><br/>
   <%= f.text_area :description%><br/>
-  <%= f.label :band %>
-  <%= f.collection_select :band_id, Band.all, :id, :name %>
-  <%= f.label :password %>
+  <%= f.label :band %><br/>
+  <%= f.collection_select :band_id, Band.all, :id, :name, {include_blank: 'Select Your Band'} %><br/>
+  <%= f.label :password %><br/>
   <%= f.password_field :password %><br/>
   <%= f.submit %>
-  <%= %>
 
 
 

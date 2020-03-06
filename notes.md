@@ -45,8 +45,7 @@ Models:
     -belongs_to :venue
 
       -name:string
-      -date:date
-      -time:time
+      -date:datetime
       -band_id:integer
       -venue_id:integer
       -genre_id:integer

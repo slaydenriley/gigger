@@ -22,6 +22,7 @@ Models:
     -belongs_to :genre
 
       -name: string
+      -email: string
       -genre: string
       -description: text
 
@@ -33,6 +34,7 @@ Models:
     -has_many :bands, through: :gigs
 
       -name: string
+      -email: string
       -description: text
 
     -rails g resource Venue name description:text --no-test-framework

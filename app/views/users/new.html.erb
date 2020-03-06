@@ -10,8 +10,5 @@
   <%= f.collection_select :band_id, Band.all, :id, :name, {include_blank: 'Select Your Band'} %><br/>
   <%= f.label :password %><br/>
   <%= f.password_field :password %><br/>
-  <%= f.submit %>
-
-
-
+  <%= f.submit "create" %>
 <% end %>

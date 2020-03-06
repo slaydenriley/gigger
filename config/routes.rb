@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get '/' => 'static#home'
+  root 'static#home'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  delete '/session', to: 'sessions#destroy'
 
   resources :genres
   resources :gigs

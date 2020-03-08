@@ -4,13 +4,15 @@ Models:
 
   -User
     -belongs_to :band
+    -belongs_to :venue
     -has_many :gigs, through: bands
 
       -name: string
       -email: string
       -password_digest: string
       -description: text
-      -band_id:integer
+      -band_id:integer, default: nil
+      -venue_id:integer, default: false
 
     -rails g resource User name email password_digest description:text band_id:integer --no-test-framework
 
@@ -30,6 +32,7 @@ Models:
 
 
   -Venue
+    -had_many :users
     -has_many :gigs
     -has_many :bands, through: :gigs
 

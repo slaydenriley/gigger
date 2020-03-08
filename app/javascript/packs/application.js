@@ -8,6 +8,18 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+<script>
+  $(document).ready(function(){
+      $("#band_or_venue").change(function(){
+          if($("#band_or_venue").val() == "Band Member"){
+            $(".bands").fadeIn('fast');
+          } else($("#band_or_venue").val() == "Venue Manager"){
+            $(".venues").fadeIn('fast');
+          }
+      });
+  });
+</script>
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

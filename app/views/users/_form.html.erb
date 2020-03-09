@@ -1,4 +1,4 @@
-<%= form_for @user do |f| %>
+<%= form_for User.new do |f| %>
   <%= f.label :name %><br/>
   <%= f.text_field :name %><br/>
   <br/>
@@ -11,5 +11,16 @@
   <%= f.label :password %><br/>
   <%= f.password_field :password %><br/>
   <br/>
+  <%= f.fields_for :bands do |band| %>
+    <%= band.label :band_name %>
+    <%= band.text_field :name %><br>
+
+    <%= band.label :band_email %>
+    <%= band.text_field :email %><br>
+
+    <%= band.label :description %>
+    <%= band.text_field :description %><br>
+
+  <% end %>
   <%= f.submit "Create Account" %>
 <% end %>

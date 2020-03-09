@@ -13,17 +13,13 @@
   <%= f.label :password %><br/>
   <%= f.password_field :password %><br/>
   <br/>
-  <%= f.collection_check_boxes :bands, Band.all, :id, :name %><br/>
-  <%= f.fields_for :bands, @user.bands.build do |band| %>
-    <%= band.label :name %><br/>
-    <%= band.text_field :name %><br/>
-    <%= band.label :email %>
-    <%= band.text_field :email %><br/>
-    <%= band.label :description %><br/>
-    <%= band.text_field :description %><br>
-  <% end %>
+  <br/>
+<h2>Band Information</h2>
+  <%= f.collection_check_boxes :band_ids, Band.all, :id, :name, include_hidden: false %>
+  <br/>
   <%= f.submit "Create Account" %>
 <% end %>
+
 
 
 

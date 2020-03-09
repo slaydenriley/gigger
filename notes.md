@@ -61,3 +61,14 @@ Models:
       -name:string
 
     -rails g resource Genre name --no-test-framework
+
+
+
+    <%= f.fields_for :bands_attributes, @user.bands.build do |band| %>
+      <%= band.label :name %><br/>
+      <%= band.text_field :name %><br/>
+      <%= band.label :email %><br/>
+      <%= band.text_field :email %><br/>
+      <%= band.label :description %><br/>
+      <%= band.text_field :description %><br>
+    <% end %>

@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @user.bands.build
   end
 
   def create
@@ -48,18 +47,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(
-      :name,
-      :email,
-      :password,
-      :description,
-      band_ids: [],
-      bands_attributes: [
-        :name,
-        :email,
-        :description
-      ]
-    )
+    params.require(:user).permit(:name, :email, :password, :description, band_ids:[])
   end
 
 end

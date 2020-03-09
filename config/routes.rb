@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :venue_users
-  resources :band_users
   root 'static#home'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -12,5 +10,7 @@ Rails.application.routes.draw do
   resources :venues
   resources :bands
   resources :users
+  resources :venue_users
+  resources :band_users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

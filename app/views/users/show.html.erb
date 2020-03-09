@@ -2,4 +2,6 @@
 <h2>Contact</h2>
 <%= @user.email %><br/>
 <h2>Bands</h2>
-<%= link_to @user.bands.first.name, "/bands/#{@user.bands.first.id}" %>
+<% if @user.bands %>
+  <%= link_to @user.bands.first.name, "/bands/#{@user.bands.first.id}" %>
+<% end %>

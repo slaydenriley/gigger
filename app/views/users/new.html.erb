@@ -1,5 +1,7 @@
 <h1>Create an Account</h1>
 
+<!---Basic Sign Up Form-->
+
 <%= form_for @user do |f| %>
   <%= f.label :name %><br/>
   <%= f.text_field :name %><br/>
@@ -14,8 +16,13 @@
   <%= f.password_field :password %><br/>
   <br/>
   <br/>
+
+<!---May Remove All of This and Let the user do it once logged in-->
+
+<!---Band Creation or Selection-->
+
 <h2>Select Existing Band</h2>
-  <%= f.collection_check_boxes :band_ids, Band.all, :id, :name %>
+  <%= f.collection_select :band_ids, Band.all, :id, :name, prompt: true %>
   <br/>
 <h2>Create a New Band</h2>
   <%= f.fields_for :bands, @user.bands.build do |band| %>
@@ -27,13 +34,17 @@
     <%= band.text_area :description %><br/>
     <%= band.label :genre_id %><br/>
     <h3>Select or Add New Genre</h3>
-    <%= band.collection_check_boxes :genre_id, Genre.all, :id, :name, prompt: true %><br/>
-    <%= band.label :new_genre %>
-    <%= band.text_field :new_genre %>
-  <% end %>
+    <%= band.collection_select :genre_id, Genre.all, :id, :name, prompt: true %><br/>
     <br/>
+    <%= band.label :genre %>
+    <%= band.text_field :genre %>
+  <% end %>
+  <br/>
+
+<!---Venue Creation-->
+
   <h2>Select Existing Venue</h2>
-    <%= f.collection_check_boxes :venue_ids, Venue.all, :id, :name %>
+    <%= f.collection_select :venue_ids, Venue.all, :id, :name, prompt: true %>
   <h2>Create a New Venue</h2>
   <%= f.fields_for :venues, @user.venues.build do |venue| %>
     <%= venue.label :name %><br/>

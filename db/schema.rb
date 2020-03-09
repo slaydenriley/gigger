@@ -13,10 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_03_09_031459) do
 
   create_table "band_users", force: :cascade do |t|
-    t.integer "users_id"
-    t.integer "bands_id"
-    t.index ["bands_id"], name: "index_band_users_on_bands_id"
-    t.index ["users_id"], name: "index_band_users_on_users_id"
+    t.integer "user_id"
+    t.integer "band_id"
   end
 
   create_table "bands", force: :cascade do |t|

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :band_user
-  has_many :bands, through: :band_user
+  has_many :band_users
+  has_many :bands, through: :band_users
   belongs_to :venue
   has_many :gigs, through: :bands
 

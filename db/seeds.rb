@@ -42,4 +42,4 @@ nextgig = Gig.create(
   venue: wilma
 )
 
-riley.bands = npr
+riley.bands << npr

@@ -1,7 +1,13 @@
 <h1><%= @user.name %></h1>
 <h2>Contact</h2>
 <%= @user.email %><br/>
-<h2>Bands</h2>
-<% if @user.bands %>
+
+<% if !@user.bands.empty? %>
+  <h2>Bands</h2>
   <%= link_to @user.bands.first.name, "/bands/#{@user.bands.first.id}" %>
+<% elsif !@user.bands.empty? %>
+  <h2>Venue Manager @...</h2>
+  <%= link_to @user.venues.first.name, "/venues/#{@user.venues.first.id}" %>
+<% else %>
+  <p>This user does not belong to any bands or manage any venues.</p>
 <% end %>

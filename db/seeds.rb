@@ -43,3 +43,4 @@ nextgig = Gig.create(
 )
 
 riley.bands << npr
+riley.venues << wilma

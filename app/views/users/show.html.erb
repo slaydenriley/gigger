@@ -1,6 +1,5 @@
-<h1>Account:</h1>
-<%= @user.name %><br/>
+<h1><%= @user.name %></h1>
+<h2>Contact</h2>
 <%= @user.email %><br/>
-<% if @user.band %>
-  <%= link_to "#{@user.band.name}", "/bands/#{@user.band.id}" %>
-<% end %>
+<h2>Bands</h2>
+<%= link_to @user.bands.first.name, "/bands/#{@user.bands.first.id}" %>

@@ -2,8 +2,8 @@
 
 <p><%=@band.description%></p>
 
-<% binding.pry %>
+<h2>Band Members</h2>
 
 <% @band.users.each do |user|%>
-  <%= user.name %>
+  <li><%= link_to "#{user.name}", "/users/#{user.id}" %></li>
 <% end %>

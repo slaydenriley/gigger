@@ -26,7 +26,10 @@
     <%= band.label :description %><br/>
     <%= band.text_area :description %><br/>
     <%= band.label :genre_id %><br/>
-    <%= band.collection_select :genre_id, Genre.all, :id, :name, prompt: true %>
+    <h3>Select or Add New Genre</h3>
+    <%= band.collection_check_boxes :genre_id, Genre.all, :id, :name, prompt: true %><br/>
+    <%= band.label :new_genre %>
+    <%= band.text_field :new_genre %>
   <% end %>
     <br/>
   <h2>Select Existing Venue</h2>

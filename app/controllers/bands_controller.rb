@@ -1,13 +1,14 @@
 class BandsController < ApplicationController
   def new
     @band = Band.new
+    @band.users.build
   end
 
   def create
-    band = Band.create(band_params)
+    @band = Band.new(band_params)
     binding.pry
-    if band.valid?
-      redirect_to band_path(band)
+    if @band.save
+      redirect_to band_path(@band)
     else
       render :new
     end
@@ -38,7 +39,8 @@ class BandsController < ApplicationController
       :name,
       :email,
       :description,
-      users: []
+      :genre_id,
+      user_ids:[]
     )
   end
 

@@ -58,14 +58,14 @@ class UsersController < ApplicationController
         :name,
         :email,
         :description,
-        :genre_id
+        genre_id:[],
         ],
       venue_ids:[],
       venues_attributes:[
         :name,
         :description,
         :email
-        ]
+      ]
       )
   end
 

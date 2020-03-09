@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :venues, through: :venue_users
 
   has_many :gigs, through: :bands
+  has_many :genres, through: :bands
   accepts_nested_attributes_for :bands
   accepts_nested_attributes_for :venues
 

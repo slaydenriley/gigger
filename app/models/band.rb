@@ -7,4 +7,6 @@ class Band < ApplicationRecord
   belongs_to :genre
 
   accepts_nested_attributes_for :users
+  accepts_nested_attributes_for :genre
+
 end

@@ -1,3 +1,18 @@
-<h1>New Band</h1>
-
-<%= render 'form' %>
+<%= form_for @band do |f| %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %><br/>
+  <br/>
+  <%= f.label :email %><br/>
+  <%= f.email_field :email %><br/>
+  <br/>
+  <%= f.label :description %><br/>
+  <%= f.text_area :description %><br/>
+  <br/>
+  <%= f.label :users %><br/>
+  <%= f.collection_check_boxes :user_ids, User.all, :id, :name, include_hidden: false %><br/>
+  <br/>
+  <%= f.label :genre_id %><br/>
+  <%= f.collection_check_boxes :genre_id, Genre.all, :id, :name, include_hidden: false %><br/>
+  <br/>
+  <%= f.submit "Create Band" %>
+<% end %>

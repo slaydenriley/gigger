@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_215422) do
+ActiveRecord::Schema.define(version: 2020_03_09_031459) do
+
+  create_table "band_users", force: :cascade do |t|
+    t.integer "users_id"
+    t.integer "bands_id"
+    t.index ["bands_id"], name: "index_band_users_on_bands_id"
+    t.index ["users_id"], name: "index_band_users_on_users_id"
+  end
 
   create_table "bands", force: :cascade do |t|
     t.string "name"
@@ -41,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_03_08_215422) do
     t.string "email"
     t.string "password_digest"
     t.text "description"
-    t.integer "band_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "venue_id"

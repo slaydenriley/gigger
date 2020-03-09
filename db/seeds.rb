@@ -19,8 +19,7 @@ riley = User.create(
   name: "Riley",
   email: "slaydenriley@gmail.com",
   password_digest: "codydog",
-  description: "Hey, my name is Riley and I play banjo for National Park Radio",
-  band: npr
+  description: "Hey, my name is Riley and I play banjo for National Park Radio"
 )
 
 newgig = Gig.create(
@@ -42,3 +41,5 @@ nextgig = Gig.create(
   band: npr,
   venue: wilma
 )
+
+riley.bands = npr

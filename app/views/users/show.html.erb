@@ -9,8 +9,15 @@
   <h2>Venue Manager @...</h2>
   <%= link_to @user.venues.first.name, "/venues/#{@user.venues.first.id}" %>
 <% else %>
-  <p>This user does not belong to any bands or manage any venues.</p>
+  <% if @user.id == current_user.id %>
+    <p>You do not belong to any bands or manage any venues.</p>
+    <%= link_to "I'm in a band!", "/bands/new" %><br/>
+    <%= link_to 'I manage a venue', "/venues/new" %>
+  <% else %>
+    <p>This user does not belong to any bands or manage any venues.</p>
+  <% end %>
 <% end %>
+<br/>
 <br/>
 
 <% if @user.id == current_user.id %>

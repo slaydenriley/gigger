@@ -1,5 +1,5 @@
 <h1>Create an Account</h1>
-<%= form_for @user do |f| %>
+<%= form_for User.new do |f| %>
   <%= f.label :name %><br/>
   <%= f.text_field :name %><br/>
   <br/>

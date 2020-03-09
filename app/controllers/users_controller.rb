@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   #skip_before_action :authorized, only: [:new, :create]
 
   def new
+    binding.pry
     @user = User.new
     @user.bands.build
   end
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
       :email,
       :password,
       :description,
-      bands_attributes: [
+      :bands_attributes => [
         :name,
         :email,
         :description

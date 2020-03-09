@@ -9,7 +9,9 @@
   <%= f.text_area :description%><br/>
   <br/>
   <%= f.label :members %><br/>
-  <%= f.collection_check_boxes :users, User.all, :id, :name %></br>
+  </br>
   <br/>
   <%= f.submit "Create Band" %>
 <% end %>
+
+<!--- f.collection_check_boxes :users, User.all, :id, :name-->

@@ -8,15 +8,27 @@
   <%= f.email_field :email %><br/>
   <br/>
   <%= f.label :description %><br/>
-  <%= f.text_area :description%><br/>
+  <%= f.text_area :description %><br/>
   <br/>
   <%= f.label :password %><br/>
   <%= f.password_field :password %><br/>
   <br/>
   <br/>
-<h2>Band Information</h2>
+<h2>Select Existing Band</h2>
   <%= f.collection_check_boxes :band_ids, Band.all, :id, :name, include_hidden: false %>
   <br/>
+<h2>Create a New Band</h2>
+  <%= f.fields_for :bands, @user.bands.build do |band| %>
+    <%= band.label :name %><br/>
+    <%= band.text_field :name %><br/>
+    <%= band.label :email %><br/>
+    <%= band.text_field :email %><br/>
+    <%= band.label :description %><br/>
+    <%= band.text_area :description %><br/>
+    <%= band.label :genre_id %><br/>
+    <%= band.collection_select :genre_id, Genre.all, :id, :name %>
+    <% end %>
+    <br/>
   <%= f.submit "Create Account" %>
 <% end %>
 

@@ -3,14 +3,14 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.bands.build
   end
 
   def create
-    binding.pry
-    user = User.create(user_params)
-    if user.valid?
-      session[:user_id] = user.id
-      redirect_to user_path(user)
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
       render :new
     end
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
   def update
     user = User.update(user_params)
+
     if user.valid?
       redirect_to user_path(user)
     else
@@ -47,7 +48,19 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :description, band_ids:[])
+    params.require(:user).permit(
+      :name,
+      :email,
+      :password,
+      :description,
+      band_ids:[],
+      bands_attributes:[
+        :name,
+        :email,
+        :description,
+        :genre_id
+        ]
+      )
   end
 
 end

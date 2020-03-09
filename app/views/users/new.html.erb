@@ -15,7 +15,7 @@
   <br/>
   <br/>
 <h2>Select Existing Band</h2>
-  <%= f.collection_check_boxes :band_ids, Band.all, :id, :name, include_hidden: false %>
+  <%= f.collection_check_boxes :band_ids, Band.all, :id, :name %>
   <br/>
 <h2>Create a New Band</h2>
   <%= f.fields_for :bands, @user.bands.build do |band| %>
@@ -26,9 +26,20 @@
     <%= band.label :description %><br/>
     <%= band.text_area :description %><br/>
     <%= band.label :genre_id %><br/>
-    <%= band.collection_select :genre_id, Genre.all, :id, :name %>
-    <% end %>
+    <%= band.collection_select :genre_id, Genre.all, :id, :name, prompt: true %>
+  <% end %>
     <br/>
+  <h2>Select Existing Venue</h2>
+    <%= f.collection_check_boxes :venue_ids, Venue.all, :id, :name %>
+  <h2>Create a New Venue</h2>
+  <%= f.fields_for :venues, @user.venues.build do |venue| %>
+    <%= venue.label :name %><br/>
+    <%= venue.text_field :name %><br/>
+    <%= venue.label :email %><br/>
+    <%= venue.text_field :email %><br/>
+    <%= venue.label :description %><br/>
+    <%= venue.text_area :description %><br/>
+  <% end %>
   <%= f.submit "Create Account" %>
 <% end %>
 

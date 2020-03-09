@@ -59,6 +59,12 @@ class UsersController < ApplicationController
         :email,
         :description,
         :genre_id
+        ],
+      venue_ids:[],
+      venues_attributes:[
+        :name,
+        :description,
+        :email
         ]
       )
   end

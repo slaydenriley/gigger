@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :gigs, through: :bands
   accepts_nested_attributes_for :bands
+  accepts_nested_attributes_for :venues
 
   has_secure_password
 

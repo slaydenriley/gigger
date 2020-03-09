@@ -20,6 +20,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    user = User.update(user_params)
+    if user.valid?
+      redirect_to user_path(user)
+    else
+      render :edit
+    end
   end
 
   def delete

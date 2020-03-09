@@ -1,4 +1,4 @@
 <h1>All Users</h1>
 <% @users.each do |user| %>
-  <li><a href="users/#{user.id}"><%= user.name %></a></li><br/>
+  <li><%= link_to "#{user.name}", "/users/#{user.id}" %><br/>
 <% end %>

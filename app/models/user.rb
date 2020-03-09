@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :band
+  has_and_belongs_to_many :band
   belongs_to :venue
   has_many :gigs, through: :band
 

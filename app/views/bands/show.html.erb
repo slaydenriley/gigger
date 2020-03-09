@@ -1,0 +1,9 @@
+<h1><%=@band.name%></h1>
+
+<p><%=@band.description%></p>
+
+<% binding.pry %>
+
+<% @band.users.each do |user|%>
+  <%= user.name %>
+<% end %>

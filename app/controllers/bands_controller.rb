@@ -5,6 +5,7 @@ class BandsController < ApplicationController
 
   def create
     band = Band.create(band_params)
+    binding.pry
     if band.valid?
       redirect_to band_path(band)
     else
@@ -33,11 +34,8 @@ class BandsController < ApplicationController
       :name,
       :email,
       :description,
-      users: [
-        :user_id
-      ]
+      users: []
     )
-    binding.pry
   end
 
 end

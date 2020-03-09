@@ -11,16 +11,14 @@
   <%= f.label :password %><br/>
   <%= f.password_field :password %><br/>
   <br/>
-  <%= f.fields_for :bands do |band| %>
-    <%= band.label :band_name %>
-    <%= band.text_field :name %><br>
-
-    <%= band.label :band_email %>
-    <%= band.text_field :email %><br>
-
-    <%= band.label :description %>
+  <%= f.collection_check_boxes :bands, Band.all, :id, :name %><br/>
+  <%= f.fields_for :bands, @user.bands.build do |band| %>
+    <%= band.label :name %><br/>
+    <%= band.text_field :name %><br/>
+    <%= band.label :email %>
+    <%= band.text_field :email %><br/>
+    <%= band.label :description %><br/>
     <%= band.text_field :description %><br>
-
   <% end %>
   <%= f.submit "Create Account" %>
 <% end %>

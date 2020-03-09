@@ -6,12 +6,11 @@
   <%= f.email_field :email %><br/>
   <br/>
   <%= f.label :description %><br/>
-  <%= f.text_area :description%><br/>
+  <%= f.text_area :description %><br/>
   <br/>
-  <%= f.label :members %><br/>
+  <%= f.label :users %><br/>
+  <%= f.collection_check_boxes :users, User.all, :id, :name, include_hidden: false %>
   </br>
   <br/>
   <%= f.submit "Create Band" %>
 <% end %>
-
-<!--- f.collection_check_boxes :users, User.all, :id, :name-->

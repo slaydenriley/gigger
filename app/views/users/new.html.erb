@@ -1,6 +1,29 @@
 <h1>Create an Account</h1>
 
-<%= render 'form' %>
+<%= form_for @user do |f| %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %><br/>
+  <br/>
+  <%= f.label :email %><br/>
+  <%= f.email_field :email %><br/>
+  <br/>
+  <%= f.label :description %><br/>
+  <%= f.text_area :description%><br/>
+  <br/>
+  <%= f.label :password %><br/>
+  <%= f.password_field :password %><br/>
+  <br/>
+  <%= f.collection_check_boxes :bands, Band.all, :id, :name %><br/>
+  <%= f.fields_for :bands, @user.bands.build do |band| %>
+    <%= band.label :name %><br/>
+    <%= band.text_field :name %><br/>
+    <%= band.label :email %>
+    <%= band.text_field :email %><br/>
+    <%= band.label :description %><br/>
+    <%= band.text_field :description %><br>
+  <% end %>
+  <%= f.submit "Create Account" %>
+<% end %>
 
 
 

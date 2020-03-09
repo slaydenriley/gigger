@@ -2,14 +2,13 @@ class UsersController < ApplicationController
   #skip_before_action :authorized, only: [:new, :create]
 
   def new
-    binding.pry
     @user = User.new
     @user.bands.build
   end
 
   def create
-    user = User.create(user_params)
     binding.pry
+    user = User.create(user_params)
     if user.valid?
       session[:user_id] = user.id
       redirect_to user_path(user)
@@ -54,7 +53,8 @@ class UsersController < ApplicationController
       :email,
       :password,
       :description,
-      :bands_attributes => [
+      band_ids: [],
+      bands_attributes: [
         :name,
         :email,
         :description

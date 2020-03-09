@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def show
     @user = User.find_by(id: params[:id])
   end
@@ -28,7 +32,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @user = User.find_by(params[:id])
+    @user.delete
+    session.destroy
+    redirect_to root_path
   end
 
   def index

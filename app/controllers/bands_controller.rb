@@ -6,7 +6,6 @@ class BandsController < ApplicationController
   end
 
   def create
-    binding.pry
     @band = current_user.bands.build(band_params)
     if @band.save!
       current_user.bands << @band

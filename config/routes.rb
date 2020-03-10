@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   delete '/session', to: 'sessions#destroy'
   post '/bands/join', to: 'bands#join'
+  post '/venues/join', to: 'venues#join'
 
   resources :genres
   resources :gigs

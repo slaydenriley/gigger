@@ -6,6 +6,7 @@ class GigsController < ApplicationController
   end
 
   def show
+    @gig = Gig.find_by_id(params[:id])
   end
 
   def update
@@ -15,5 +16,6 @@ class GigsController < ApplicationController
   end
 
   def index
+    @gigs = Gig.all
   end
 end

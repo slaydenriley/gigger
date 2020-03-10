@@ -1,6 +1,11 @@
+
 <h1>All Shows!</h1>
 <h4><%= link_to 'Add New Gig', "/gigs/new" %> </h4>
 
 <% @gigs.each do |gig| %>
   <li><%= link_to gig.name, gig_path(gig) %></li><br/>
+<% end %>
+
+<%= month_calendar gigs: @name do |date, name| %>
+  <%= date %>
 <% end %>

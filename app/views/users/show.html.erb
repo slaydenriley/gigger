@@ -2,7 +2,6 @@
 <h2>Contact</h2>
 <%= @user.email %><br/>
 
-<% if @user.id == current_user.id %>
-  <%= link_to 'Edit Account', "/users/#{@user.id}/edit" %><br/>
-  <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'For real?' } %>
-<% end %>
+
+<%= link_to 'Edit Account', edit_user_path(@user) if policy(@user).update? %><br/>
+<%= link_to 'Delete', @user, method: :delete, data: { confirm: 'For real?' } if policy(@user).destroy? %>

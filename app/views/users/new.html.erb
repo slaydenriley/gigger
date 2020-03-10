@@ -16,49 +16,16 @@
   <%= f.password_field :password %><br/>
   <br/>
   <br/>
+  <%= f.label :type, 'Account Type' %><br/>
+  <%= f.select :type, options_for_select([
+    ["Band Member", "band_member"],
+    ["Venue Manager", "venue_manager"],
+    ["Concert Goer", "concert_goer"]]) %>
+  <br/>
+  <br/>
+  <%= f.submit "Create Account" %>
+<% end %>
 
 <!---May Remove All of This and Let the user do it once logged in-->
 
 <!---Band Creation or Selection-->
-
-<h2>Select Existing Band</h2>
-  <%= f.collection_select :band_ids, Band.all, :id, :name, prompt: true %>
-  <br/>
-<h2>Create a New Band</h2>
-  <%= f.fields_for :bands, @user.bands.build do |band| %>
-    <%= band.label :name %><br/>
-    <%= band.text_field :name %><br/>
-    <%= band.label :email %><br/>
-    <%= band.text_field :email %><br/>
-    <%= band.label :description %><br/>
-    <%= band.text_area :description %><br/>
-    <%= band.label :genre_id %><br/>
-    <h3>Select or Add New Genre</h3>
-    <%= band.collection_select :genre_id, Genre.all, :id, :name, prompt: true %><br/>
-    <br/>
-    <%= band.label :genre %>
-    <%= band.text_field :genre %>
-  <% end %>
-  <br/>
-
-<!---Venue Creation-->
-
-  <h2>Select Existing Venue</h2>
-    <%= f.collection_select :venue_ids, Venue.all, :id, :name, prompt: true %>
-  <h2>Create a New Venue</h2>
-  <%= f.fields_for :venues, @user.venues.build do |venue| %>
-    <%= venue.label :name %><br/>
-    <%= venue.text_field :name %><br/>
-    <%= venue.label :email %><br/>
-    <%= venue.text_field :email %><br/>
-    <%= venue.label :description %><br/>
-    <%= venue.text_area :description %><br/>
-  <% end %>
-  <%= f.submit "Create Account" %>
-<% end %>
-
-
-
-
-
-<!---  f.collection_select :band_id, Band.all, :id, :name <br/> -->

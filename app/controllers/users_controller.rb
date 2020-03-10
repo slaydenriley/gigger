@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @user.bands.build
   end
 
   def create
@@ -53,21 +52,7 @@ class UsersController < ApplicationController
       :email,
       :password,
       :description,
-      band_ids:[],
-      bands_attributes:[
-        :name,
-        :email,
-        :description,
-        :genre_id,
-        genre_attributes:[:name]
-      ],
-      venue_ids:[],
-      venues_attributes:[
-        :name,
-        :description,
-        :email
-      ]
-      )
+      :type,
+    )  
   end
-
 end

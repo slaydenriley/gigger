@@ -36,7 +36,8 @@ class BandsController < ApplicationController
   end
 
   def update
-    @band = Band.update(band_params)
+    @band = Band.find(params[:id])
+    @band.update(band_params)
     redirect_to band_path(@band)
   end
 

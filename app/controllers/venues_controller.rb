@@ -29,7 +29,8 @@ class VenuesController < ApplicationController
   end
 
   def update
-    @venue = Venue.update(venue_params)
+    @venue = Venue.find(params[:id])
+    @venue.update(venue_params)
     redirect_to venue_path(@venue)
   end
 

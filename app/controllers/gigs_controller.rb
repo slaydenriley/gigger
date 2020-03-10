@@ -12,15 +12,23 @@ class GigsController < ApplicationController
     end
   end
 
-
   def show
-    @gig = Gig.find_by_id(params[:id])
+    @gig = Gig.find_by(id: params[:id])
+  end
+
+  def edit
+    @gig = Gig.find(params[:id])
   end
 
   def update
+    gig = Gig.update(gig_params)
+    redirect_to gig_path
   end
 
-  def delete
+  def destroy
+    @gig = Gig.find_by(params[:id])
+    @gig.delete
+    redirect_to gig_path
   end
 
   def index

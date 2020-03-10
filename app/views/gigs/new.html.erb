@@ -1,16 +1,2 @@
 <h1>Add a New Gig!</h1>
-<%= form_for @gig do |f| %>
-  <%= f.label :name %><br/>
-  <%= f.text_field :name %><br/>
-  <br/>
-  <%= f.label :band_id, "Band" %><br/>
-  <%= f.collection_select :band_id, Band.all, :id, :name %><br/>
-  <br/>
-  <%= f.label :venue_id, "Venue" %><br/>
-  <%= f.collection_select :venue_id, Venue.all, :id, :name %><br/>
-  <br/>
-  <%= f.label :date %>
-  <%= f.date_select :date %>
-  <br/>
-  <%= f.submit "Create Gig" %>
-<% end %>
+<%= render 'form' %>

@@ -57,5 +57,4 @@ class UsersController < ApplicationController
       :account_type
     )
   end
-
 end

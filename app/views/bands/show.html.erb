@@ -8,6 +8,7 @@
   <li><%= link_to "#{user.name}", "/users/#{user.id}" %></li>
 <% end %>
 <br/>
-<%= link_to 'Edit Band', edit_band_path(@band) %>
+
+<% if can? :update, @band %><%= link_to 'Edit Band', edit_band_path(@band) %><% end %>
 <br/>
-<%= link_to 'Delete', @band, method: 'delete' %>
+<% if can? :destroy, @band %><%= link_to 'Delete', @band, method: 'delete' %><% end %>

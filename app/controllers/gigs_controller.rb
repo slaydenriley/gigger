@@ -1,7 +1,5 @@
 class GigsController < ApplicationController
   before_action :authorized
-  before_action :gig_authorized
-  skip_before_action :gig_authorized, only: [:index, :show]
   load_and_authorize_resource
 
   def new
@@ -50,9 +48,5 @@ class GigsController < ApplicationController
       :venue_id,
       :date
     )
-  end
-
-  def gig_authorized
-    redirect_to '/gigs' unless current_user.account_type == ("band_member" || "venue_manager")
   end
 end

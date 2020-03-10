@@ -1,7 +1,5 @@
 class BandsController < ApplicationController
   before_action :authorized
-  before_action :band_authorized
-  skip_before_action :band_authorized, only: [:index, :show]
   load_and_authorize_resource
 
   def new
@@ -69,18 +67,5 @@ class BandsController < ApplicationController
       users:[]
     )
   end
-
-  def band_authorized
-    if current_user.account_type == "band_member"
-      if current_user.bands == "band clicked on"
-      else
-        redirect_to '/bands'
-      end
-    else
-      redirect_to '/bands'
-    end
-
-  end
-
 
 end

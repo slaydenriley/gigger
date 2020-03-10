@@ -8,11 +8,16 @@
   <%= f.label :description %><br/>
   <%= f.text_area :description %><br/>
   <br/>
-  <%= f.label :users %><br/>
+  <%= f.label :users, "Band Members" %><br/>
   <%= f.collection_check_boxes :user_ids, User.all, :id, :name, include_hidden: false %><br/>
   <br/>
-  <%= f.label :genre %><br/>
-  <%= f.collection_check_boxes :genre_id, Genre.all, :id, :name, include_hidden: false %><br/>
+  <h3>Select or Add New Genre</h3>
+  <%= f.fields_for :genre do |genre| %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true %><br/>
+    <br/>
+    <%= genre.label :name, 'New Genre' %><br/>
+    <%= genre.text_field :name %><br/>
+  <% end %>
   <br/>
   <%= f.submit "Create Band" %>
 <% end %>

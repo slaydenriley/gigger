@@ -32,10 +32,12 @@ class BandsController < ApplicationController
   end
 
   def edit
-    @band = Band.find_by_id(params[:id])
+    @band = Band.find(params[:id])
   end
 
   def update
+    @band = Band.update(band_params)
+    redirect_to band_path(@band)
   end
 
   def delete

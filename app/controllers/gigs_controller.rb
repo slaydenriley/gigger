@@ -6,7 +6,6 @@ class GigsController < ApplicationController
   def create
     @gig = Gig.create(gig_params)
     if @gig.valid?
-      current_user.gigs << @gig
       redirect_to gig_path(@gig)
     else
       render :new
@@ -34,7 +33,8 @@ class GigsController < ApplicationController
     params.require(:gig).permit(
       :name,
       :band_id,
-      :venue_id
+      :venue_id,
+      :date
     )
   end
 end

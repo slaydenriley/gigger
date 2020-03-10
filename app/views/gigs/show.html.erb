@@ -1,0 +1,5 @@
+<h1><%=@gig.name%></h1>
+
+<%= @gig.date %><br/>
+<%= link_to @gig.venue.name, venue_path(@gig.venue) %><br/>
+<%= link_to @gig.band.name, band_path(@gig.band) %><br/>

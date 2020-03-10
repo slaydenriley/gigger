@@ -7,3 +7,6 @@
 <% @venue.users.each do |user|%>
   <li><%= link_to "#{user.name}", "/users/#{user.id}" %></li>
 <% end %>
+
+<br/>
+<%= link_to 'Edit Venue', edit_venue_path(@venue) %>

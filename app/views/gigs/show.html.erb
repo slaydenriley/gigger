@@ -3,3 +3,6 @@
 <%= @gig.date %><br/>
 <%= link_to @gig.venue.name, venue_path(@gig.venue) %><br/>
 <%= link_to @gig.band.name, band_path(@gig.band) %><br/>
+
+<br/>
+<%= link_to 'Edit Gig', edit_gig_path(@gig) %>

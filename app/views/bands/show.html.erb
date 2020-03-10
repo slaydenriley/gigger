@@ -7,3 +7,5 @@
 <% @band.users.each do |user|%>
   <li><%= link_to "#{user.name}", "/users/#{user.id}" %></li>
 <% end %>
+<br/>
+<%= link_to 'Edit Band', edit_band_path(@band) %>

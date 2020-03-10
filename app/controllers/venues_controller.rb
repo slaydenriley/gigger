@@ -34,7 +34,10 @@ class VenuesController < ApplicationController
     redirect_to venue_path(@venue)
   end
 
-  def delete
+  def destroy
+    @venue = Venue.find_by(params[:id])
+    @venue.destroy
+    redirect_to '/venues'
   end
 
   def index

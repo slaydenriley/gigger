@@ -1,6 +1,7 @@
 class BandsController < ApplicationController
-  before_action :require_login
-  skip_before_action :require_login, only: [:index]
+  before_action :authorized
+  before_action :band_authorized
+  skip_before_action :band_authorized, only: [:index, :show]
 
   def new
     @band = Band.new
@@ -68,8 +69,9 @@ class BandsController < ApplicationController
     )
   end
 
-  def require_login
-    return head(:forbidden) unless session.include? :user_id
+  def band_authorized
+    redirect_to '/bands' unless current_user.account_type == "band_member"
   end
+
 
 end

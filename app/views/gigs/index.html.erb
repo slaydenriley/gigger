@@ -6,6 +6,11 @@
   <li><%= link_to gig.name, gig_path(gig) %></li><br/>
 <% end %>
 
-<%= month_calendar gigs: @name do |date, name| %>
-  <%= date %>
+<%= month_calendar events: @gigs do |date, gigs| %>
+  <%= date.day %>
+  <% gigs.each do |gig| %>
+    <div>
+      <%= gig.name %>
+    </div>
+  <% end %>
 <% end %>

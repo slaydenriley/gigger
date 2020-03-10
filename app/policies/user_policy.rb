@@ -12,6 +12,6 @@ class UserPolicy < ApplicationPolicy
 
 
   def user_is_owner_of_record?
-    user == record
+    #current_user == @user
   end
 end

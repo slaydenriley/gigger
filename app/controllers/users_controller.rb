@@ -4,14 +4,17 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    authorize @user
   end
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
+    if @user.account_type == ("band_member" || "venue_manager" || "concert_goer")
+      if @user.save
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        render :new
+      end
     else
       render :new
     end
@@ -19,24 +22,25 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
-    authorize @user, :update?
+    authorize @user
   end
 
   def show
+    binding.pry
     @user = User.find_by(id: params[:id])
   end
 
   def update
-    authorize @user
     @user = User.find(params[:id])
+    authorize @user
     @user.update(user_params)
     redirect_to user_path(@user)
   end
 
   def destroy
-    authorize @user
     @user = User.find_by(params[:id])
-    @user.delete
+    binding.pry
+    @user.destroy
     session.destroy
     redirect_to root_path
   end
@@ -53,7 +57,8 @@ class UsersController < ApplicationController
       :email,
       :password,
       :description,
-      :account_type,
+      :account_type
     )
   end
+
 end

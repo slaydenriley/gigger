@@ -1,11 +1,12 @@
 class BandsController < ApplicationController
   def new
     @band = Band.new
-    @band.users.build
+    #@band.users.build
     @band.build_genre
   end
 
   def create
+    binding.pry
     @band = current_user.bands.build(band_params)
     if @band.save!
       current_user.bands << @band
@@ -13,6 +14,16 @@ class BandsController < ApplicationController
     else
       @band.build_genre
       render :new
+    end
+  end
+
+  def join
+    @band = Band.find_by_id(params[:band][:id])
+    if current_user.bands.exists?(@band.id)
+      flash.now[:alert] = "Silly! You are already part of that band"
+      render :new
+    else
+      current_user.bands << @band
     end
   end
 
@@ -43,7 +54,8 @@ class BandsController < ApplicationController
       :description,
       :genre_id,
       genre_attributes:[:name],
-      user_ids:[]
+      user_ids:[],
+      users:[]
     )
   end
 

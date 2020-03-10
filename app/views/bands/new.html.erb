@@ -1,3 +1,15 @@
+<h1>Join an Existing Band</h1>
+<%= flash.alert if flash.alert %>
+<%= form_for @band, :url => {:action => "join"} do |f| %>
+  <%= f.label :id, "Band" %><br/>
+  <%= f.collection_select :id, Band.all, :id, :name, prompt: true %>
+  <br/>
+  <%= f.submit "Join Band" %>
+<% end %>
+
+
+
+<h1>Create a New Band!</h1>
 <%= form_for @band do |f| %>
   <%= f.label :name %><br/>
   <%= f.text_field :name %><br/>
@@ -8,7 +20,7 @@
   <%= f.label :description %><br/>
   <%= f.text_area :description %><br/>
   <br/>
-  <%= f.label :users %><br/>
+  <%= f.label :users, "Band Members" %><br/>
   <%= f.collection_check_boxes :user_ids, User.all, :id, :name, include_hidden: false %><br/>
   <br/>
   <h3>Select or Add New Genre</h3>

@@ -1,4 +1,5 @@
 class GigsController < ApplicationController
+  before_action :authorized
   before_action :gig_authorized
   skip_before_action :gig_authorized, only: [:index, :show]
 

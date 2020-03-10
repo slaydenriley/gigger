@@ -70,7 +70,15 @@ class BandsController < ApplicationController
   end
 
   def band_authorized
-    redirect_to '/bands' unless current_user.account_type == "band_member"
+    if current_user.account_type == "band_member"
+      if current_user.bands == "band clicked on"
+      else
+        redirect_to '/bands'
+      end
+    else
+      redirect_to '/bands'
+    end
+
   end
 
 

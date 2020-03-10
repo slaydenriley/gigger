@@ -9,7 +9,7 @@
   <%= f.collection_select :venue_id, Venue.all, :id, :name %><br/>
   <br/>
   <%= f.label :date %>
-  <%= f.date_select :date %>
+  <%= f.datetime_select :date %>
   <br/>
   <%= f.submit "Create Gig" %>
 <% end %>

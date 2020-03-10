@@ -1,4 +1,3 @@
-
 <h1>All Shows!</h1>
 <h4><%= link_to 'Add New Gig', "/gigs/new" %> </h4>
 
@@ -9,9 +8,7 @@
 <%= month_calendar events: @gigs do |date, gigs| %>
   <%= date.day %>
   <% gigs.each do |gig| %>
-    <div>
       <%= gig.name %><br/>
-      <%= date.strftime("%l:%M %p") %>
-    </div>
+      <%= gig.date.strftime("%l:%M %p") %>
   <% end %>
 <% end %>

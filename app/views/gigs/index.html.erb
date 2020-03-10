@@ -10,7 +10,8 @@
   <%= date.day %>
   <% gigs.each do |gig| %>
     <div>
-      <%= gig.name %>
+      <%= gig.name %><br/>
+      <%= date.strftime("%l:%M %p") %>
     </div>
   <% end %>
 <% end %>

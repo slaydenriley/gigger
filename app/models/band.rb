@@ -2,7 +2,7 @@ class Band < ApplicationRecord
   has_many :band_users
   has_many :users, through: :band_users
 
-  has_many :gigs
+  has_many :gigs, dependent: :destroy
   has_many :venues, through: :gigs
   belongs_to :genre
 

@@ -1,4 +1,7 @@
 class BandsController < ApplicationController
+  before_action :require_login
+  skip_before_action :require_login, only: [:index]
+
   def new
     @band = Band.new
     #@band.users.build
@@ -43,8 +46,8 @@ class BandsController < ApplicationController
 
   def destroy
     @band = Band.find_by(params[:id])
-    @band.delete
-    redirect_to band
+    @band.destroy
+    redirect_to '/bands'
   end
 
   def index
@@ -63,6 +66,10 @@ class BandsController < ApplicationController
       user_ids:[],
       users:[]
     )
+  end
+
+  def require_login
+    return head(:forbidden) unless session.include? :user_id
   end
 
 end

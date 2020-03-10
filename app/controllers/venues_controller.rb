@@ -1,4 +1,7 @@
 class VenuesController < ApplicationController
+  before_action :venue_authorized
+  skip_before_action :venue_authorized, only: [:index, :show]
+  
   def new
     @venue = Venue.new
   end
@@ -56,5 +59,9 @@ class VenuesController < ApplicationController
       :email,
       :description
     )
+  end
+
+  def venue_authorized
+    redirect_to '/venues' unless current_user.account_type == "venue_manager"
   end
 end

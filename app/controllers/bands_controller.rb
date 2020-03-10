@@ -41,7 +41,10 @@ class BandsController < ApplicationController
     redirect_to band_path(@band)
   end
 
-  def delete
+  def destroy
+    @band = Band.find_by(params[:id])
+    @band.delete
+    redirect_to band
   end
 
   def index

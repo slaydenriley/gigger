@@ -1,4 +1,7 @@
 class GigsController < ApplicationController
+  before_action :gig_authorized
+  skip_before_action :gig_authorized, only: [:index, :show]
+
   def new
     @gig = Gig.new
   end
@@ -45,5 +48,9 @@ class GigsController < ApplicationController
       :venue_id,
       :date
     )
+  end
+
+  def gig_authorized
+    redirect_to '/gigs' unless current_user.account_type == ("band_member" || "venue_manager")
   end
 end

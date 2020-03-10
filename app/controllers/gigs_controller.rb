@@ -21,8 +21,8 @@ class GigsController < ApplicationController
   end
 
   def update
-    gig = Gig.update(gig_params)
-    redirect_to gig_path
+    @gig = Gig.update(gig_params)
+    redirect_to gig_path(@gig)
   end
 
   def destroy

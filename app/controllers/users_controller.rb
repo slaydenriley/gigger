@@ -22,24 +22,20 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
-    authorize @user
   end
 
   def show
-    binding.pry
     @user = User.find_by(id: params[:id])
   end
 
   def update
     @user = User.find(params[:id])
-    authorize @user
     @user.update(user_params)
     redirect_to user_path(@user)
   end
 
   def destroy
     @user = User.find_by(params[:id])
-    binding.pry
     @user.destroy
     session.destroy
     redirect_to root_path

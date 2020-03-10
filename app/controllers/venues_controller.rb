@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   before_action :authorized
-  before_action :venue_authorized
-  skip_before_action :venue_authorized, only: [:index, :show]
+#  before_action :venue_authorized
+#  skip_before_action :venue_authorized, only: [:index, :show]
 
   def new
     @venue = Venue.new

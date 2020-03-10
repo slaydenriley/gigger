@@ -1,8 +1,13 @@
 <h1><%=@gig.name%></h1>
 
-<%= @gig.date %><br/>
-<%= link_to @gig.venue.name, venue_path(@gig.venue) %><br/>
-<%= link_to @gig.band.name, band_path(@gig.band) %><br/>
-
+<%= @gig.date.strftime("%A, %B %e, %Y") %><br/>
+<%= @gig.date.strftime("%l:%M %p") %><br/>
 <br/>
+<h2>Venue</h2>
+<%= link_to @gig.venue.name, venue_path(@gig.venue) %><br/>
+<br/>
+<h2>Band</h2>
+<%= link_to @gig.band.name, band_path(@gig.band) %><br/>
+<br/>
+<h4>Actions</h4>
 <%= link_to 'Edit Gig', edit_gig_path(@gig) %>

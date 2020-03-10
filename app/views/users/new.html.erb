@@ -16,8 +16,8 @@
   <%= f.password_field :password %><br/>
   <br/>
   <br/>
-  <%= f.label :type, 'Account Type' %><br/>
-  <%= f.select :type, options_for_select([
+  <%= f.label :account_type, 'Account Type' %><br/>
+  <%= f.select :account_type, options_for_select([
     ["Band Member", "band_member"],
     ["Venue Manager", "venue_manager"],
     ["Concert Goer", "concert_goer"]]) %>

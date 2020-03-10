@@ -52,7 +52,7 @@ class UsersController < ApplicationController
       :email,
       :password,
       :description,
-      :type,
-    )  
+      :account_type,
+    )
   end
 end

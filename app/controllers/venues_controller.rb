@@ -4,7 +4,6 @@ class VenuesController < ApplicationController
   end
 
   def create
-    binding.pry
     @venue = current_user.venues.build(venue_params)
     if @venue.save!
       current_user.venues << @venue

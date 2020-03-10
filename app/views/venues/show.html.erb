@@ -1,0 +1,9 @@
+<h1><%=@venue.name%></h1>
+
+<p><%=@venue.description%></p>
+
+<h2>Venue Managers</h2>
+
+<% @venue.users.each do |user|%>
+  <li><%= link_to "#{user.name}", "/users/#{user.id}" %></li>
+<% end %>

@@ -1,5 +1,6 @@
 class VenuesController < ApplicationController
   before_action :authorized
+  load_and_authorize_resource
 #  before_action :venue_authorized
 #  skip_before_action :venue_authorized, only: [:index, :show]
 

@@ -2,6 +2,7 @@ class BandsController < ApplicationController
   before_action :authorized
   before_action :band_authorized
   skip_before_action :band_authorized, only: [:index, :show]
+  load_and_authorize_resource
 
   def new
     @band = Band.new

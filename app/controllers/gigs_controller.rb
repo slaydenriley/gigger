@@ -2,6 +2,7 @@ class GigsController < ApplicationController
   before_action :authorized
   before_action :gig_authorized
   skip_before_action :gig_authorized, only: [:index, :show]
+  load_and_authorize_resource
 
   def new
     @gig = Gig.new

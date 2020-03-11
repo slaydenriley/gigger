@@ -9,6 +9,6 @@
 <% end %>
 
 <br/>
-<%= link_to 'Edit Venue', edit_venue_path(@venue) %>
+<% if can? :update, @venue %><%= link_to 'Edit Venue', edit_venue_path(@venue) %><% end %>
 <br/>
-<%= link_to 'Delete', @venue, method: 'delete' %>
+<% if can? :destroy, @venue %><%= link_to 'Delete', @venue, method: 'delete' %><% end %>

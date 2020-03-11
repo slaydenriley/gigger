@@ -16,7 +16,7 @@ class Ability
         can :manage, User, id: user.id
         can :read, :all
       elsif user.account_type == "venue_manager"
-        can :manage, Venue, user_id: user.id
+        can :manage, Venue, user_ids: user.id
         can :manage, User, id: user.id
         can :read, :all
       elsif user.account_type == "concert_goer"

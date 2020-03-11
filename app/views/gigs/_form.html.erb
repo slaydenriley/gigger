@@ -2,14 +2,30 @@
   <%= f.label :name %><br/>
   <%= f.text_field :name %><br/>
   <br/>
+
   <%= f.label :band_id, "Band" %><br/>
-  <%= f.collection_select :band_id, Band.all, :id, :name %><br/>
+  <% if current_user.account_type == "band_member" %>
+    <%= f.collection_select :band_id, current_user.bands, :id, :name %>
+  <% elsif current_user.account_type == "venue_manager" %>
+    <%= f.collection_select :band_id, Band.all, :id, :name %>
+  <% elsif current_user.admin? %>
+    <%= f.collection_select :band_id, Band.all, :id, :name %>
+  <% end %>
   <br/>
+
   <%= f.label :venue_id, "Venue" %><br/>
-  <%= f.collection_select :venue_id, Venue.all, :id, :name %><br/>
+  <% if current_user.account_type == "band_member" %>
+    <%= f.collection_select :venue_id, Venue.all, :id, :name %><br/>
+  <% elsif current_user.account_type == "venue_manager" %>
+    <%= f.collection_select :venue_id, current_user.venues, :id, :name %><br/>
+  <% elsif current_user.admin? %>
+    <%= f.collection_select :venue_id, Venue.all, :id, :name %>
+  <% end %>
   <br/>
+
   <%= f.label :date %>
   <%= f.datetime_select :date %>
   <br/>
+
   <%= f.submit "Create Gig" %>
 <% end %>

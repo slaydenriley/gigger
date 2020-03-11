@@ -9,7 +9,7 @@
   <%= f.text_area :description %><br/>
   <br/>
   <%= f.label :users, "Band Members" %><br/>
-  <%= f.collection_check_boxes :user_ids, User.all, :id, :name, include_hidden: false %><br/>
+  <%= f.collection_check_boxes :user_ids, User.where(account_type: "band_member"), :id, :name, include_hidden: false %><br/>
   <br/>
   <br/>
   <%= f.submit "Create Band" %>

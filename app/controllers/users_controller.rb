@@ -9,14 +9,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.account_type == ("band_member" || "venue_manager" || "concert_goer")
+    if @user.account_type == "band_member" || @user.account_type == "venue_manager" || @user.account_type == "concert_goer"
       if @user.save
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
+        binding.pry
         render :new
       end
     else
+
       render :new
     end
   end

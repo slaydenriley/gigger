@@ -27,6 +27,7 @@ class Ability
             end
           end
         end
+        can :create, Gig
         can :read, :all
         # Venue Manager Authority
       elsif user.account_type == "venue_manager"
@@ -44,6 +45,7 @@ class Ability
             end
           end
         end
+        can :create, Gig
         can :create, Venue
         can :manage, User, id: user.id
         can :read, :all

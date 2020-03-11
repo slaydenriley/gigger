@@ -30,9 +30,9 @@ class GigsController < ApplicationController
   end
 
   def destroy
-    @gig = Gig.find_by(params[:id])
-    @gig.delete
-    redirect_to gig_path
+    @gig = Gig.find_by_id(params[:id])
+    @gig.destroy
+    redirect_to '/gigs'
   end
 
   def index

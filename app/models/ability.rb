@@ -9,32 +9,45 @@ class Ability
     if user.present?
       if user.admin?
         can :manage, :all
+      # Band Member Authority
       elsif user.account_type == "band_member"
         Band.all.each do |band|
           band.users.each do |owners|
             if owners.id == user.id
-              can :manage, band
               can :manage, band
             end
           end
         end
         can :create, Band
         can :manage, User, id: user.id
-        can :manage, Gig, id: user.id
+        Gig.all.each do |gig|
+          gig.band.users.each do |owners|
+            if owners.id == user.id
+              can :manage, gig
+            end
+          end
+        end
         can :read, :all
+        # Venue Manager Authority
       elsif user.account_type == "venue_manager"
         Venue.all.each do |venue|
           venue.users.each do |owners|
             if owners.id == user.id
               can :manage, venue
-              can :manage, venue
+            end
+          end
+        end
+        Gig.all.each do |gig|
+          gig.band.users.each do |owners|
+            if owners.id == user.id
+              can :manage, gig
             end
           end
         end
         can :create, Venue
         can :manage, User, id: user.id
-        can :manage, Gig, id: user.id
         can :read, :all
+        # Concert Goer Authority
       elsif user.account_type == "concert_goer"
         can :manage, User, id: user.id
       else

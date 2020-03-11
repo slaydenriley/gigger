@@ -25,6 +25,8 @@ gem "simple_calendar", "~> 2.0"
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'cancancan'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

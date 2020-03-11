@@ -1,3 +1,12 @@
 <h1>Create an Account</h1>
 
-<%= render 'form' %>
+<%= form_for @user do |f| %>
+  <%= f.label :account_type, 'Account Type' %><br/>
+  <%= f.select :account_type, options_for_select([
+    ["Band Member", "band_member"],
+    ["Venue Manager", "venue_manager"],
+    ["Concert Goer", "concert_goer"]]) %>
+    <br/>
+    <br/>
+    <%= render 'form' %>
+<% end %>

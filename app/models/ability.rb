@@ -12,7 +12,15 @@ class Ability
       if user.admin?
         can :manage, :all
       elsif user.account_type == "band_member"
-        can :manage, Band, user_ids: user.id
+        Band.all.each do |band|
+          band.users.each do |owners|
+            if owners.id == user.id
+              can :manage, band
+              can :manage, band
+            end
+          end
+        end
+        can :create, Band
         can :manage, User, id: user.id
         can :manage, Gig, id: user.id
         can :read, :all

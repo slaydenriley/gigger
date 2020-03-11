@@ -4,7 +4,6 @@ class BandsController < ApplicationController
 
   def new
     @band = Band.new
-    #@band.users.build
     @band.build_genre
   end
 
@@ -52,6 +51,7 @@ class BandsController < ApplicationController
 
   def index
     @bands = Band.all
+    @band = Band
   end
 
   private

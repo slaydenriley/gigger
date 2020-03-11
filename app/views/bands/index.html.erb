@@ -1,5 +1,10 @@
 <h1>All Bands</h1>
-<h4><% if can? :create, @band %><%= link_to 'Add or Join a Band', "/bands/new" %><% end %> </h4>
+<% if can? :create, @band %>
+  <h4><%= link_to 'Create a New Band', "/bands/new" %></h4>
+  <p>To join an existing band, the band administrators must add you from their end.</p>
+
+<% end %>
+
 <% @bands.each do |band| %>
   <li><%= link_to band.name, band_path(band) %></li><br/>
 <% end %>

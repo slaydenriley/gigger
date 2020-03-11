@@ -1,13 +1,2 @@
-<h1>Join an Existing Band</h1>
-<%= flash.alert if flash.alert %>
-<%= form_for @band, :url => {:action => "join"} do |f| %>
-  <%= f.label :id, "Band" %><br/>
-  <%= f.collection_select :id, Band.all, :id, :name, prompt: true %>
-  <br/>
-  <%= f.submit "Join Band" %>
-<% end %>
-
-
-
 <h1>Create a New Band!</h1>
 <%= render 'form' %>

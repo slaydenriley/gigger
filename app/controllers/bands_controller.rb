@@ -18,23 +18,13 @@ class BandsController < ApplicationController
     end
   end
 
-  def join
-    @band = Band.find_by_id(params[:band][:id])
-    if current_user.bands.exists?(@band.id)
-      flash.now[:alert] = "Silly! You are already part of that band"
-      render :new
-    else
-      current_user.bands << @band
-      redirect_to band_path(@band)
-    end
-  end
-
   def show
     @band = Band.find_by_id(params[:id])
   end
 
   def edit
     @band = Band.find(params[:id])
+    @band.build_genre
   end
 
   def update

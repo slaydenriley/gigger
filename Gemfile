@@ -27,6 +27,7 @@ gem 'jquery-rails'
 gem 'cancancan'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -37,6 +37,7 @@ class GigsController < ApplicationController
 
   def index
     @gigs = Gig.all
+    @gig = Gig
   end
 
   private

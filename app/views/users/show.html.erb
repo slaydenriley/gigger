@@ -12,11 +12,11 @@
 <% elsif @user.account_type == "band_member" %>
   <h2><%= @user.name %>'s Bands</h2>
   <% @user.bands.each do |band| %>
-    <%= band.name %><br/>
+    <%= link_to "#{band.name}", "/bands/#{band.id}" %><br/>
   <% end %>
 <% end %>
 
-<% if @user == current_user %>
+<% if @user == current_user || current_user.admin? %>
   <h4>Account Actions</h4>
 
   <% if can? :update, @user %>
@@ -27,5 +27,5 @@
   <% if can? :destroy, @user %>
     <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'For real?' }  %>
   <% end %>
-  
+
 <% end %>

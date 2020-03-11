@@ -3,4 +3,4 @@
   <li><%= link_to venue.name, venue_path(venue) %></li><br/>
 <% end %>
 
-<% if can? :create, @venue %><h4><%= link_to 'Add New Venue', "/venues/new" %> </h4><% end %>
+<% if can? :create, @venues %><h4><%= link_to 'Add New Venue', "/venues/new" %> </h4><% end %>

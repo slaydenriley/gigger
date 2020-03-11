@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
   delete '/session', to: 'sessions#destroy'
-  get '/auth/facebook/callback' => 'sessions#create'
+  get 'auth/facebook/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
 
   resources :genres
   resources :gigs

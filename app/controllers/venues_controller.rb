@@ -58,7 +58,8 @@ class VenuesController < ApplicationController
     params.require(:venue).permit(
       :name,
       :email,
-      :description
+      :description,
+      user_ids:[]
     )
   end
 end

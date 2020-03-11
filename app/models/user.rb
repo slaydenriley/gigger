@@ -12,10 +12,4 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  #def bands_attributes=(band_attributes)
-    #band_attributes.values.each do |band_attribute|
-    #  band = Band.find_or_create_by(name: band_attribute)
-    #  self.bands << band
-    #end
-  #end
 end

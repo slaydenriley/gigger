@@ -14,11 +14,9 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        binding.pry
         render :new
       end
     else
-
       render :new
     end
   end
@@ -38,10 +36,17 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(params[:id])
-    @user.destroy
-    session.destroy
-    redirect_to root_path
+    @user = User.find_by_id(params[:id])
+    if @user.id == current_user.id
+      @user.destroy
+      session.destroy
+      redirect_to root_path
+    elsif current_user.admin?
+      @user.destroy
+      redirect_to '/users'
+    else
+      redirect_to '/users'
+    end
   end
 
   def index

@@ -1,6 +1,20 @@
 <h1><%= @user.name %></h1>
+<h2>About:</h2>
+<%= @user.description %>
 <h2>Contact</h2>
 <%= @user.email %><br/>
+
+<% if @user.account_type == "venue_manager" %>
+  <h2>Venues I manage:</h2>
+  <% @user.venues.each do |venue| %>
+    <%= venue.name %><br/>
+  <% end %>
+<% elsif @user.account_type == "band_manager" %>
+  <h2>My Bands:</h2>
+  <% @user.bands.each do |band| %>
+    <%= band.name %><br/>
+  <% end %>
+<% end %>
 
 
 <% if can? :update, @user %><%= link_to 'Edit Account', edit_user_path(@user) %><br/><% end %>

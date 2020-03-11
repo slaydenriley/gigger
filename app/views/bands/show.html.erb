@@ -1,7 +1,16 @@
 <h1><%=@band.name%></h1>
-
+<h2>Genre:</h2>
+<p><%= @band.genre.name %></p>
+<h2>Description:</h2>
 <p><%=@band.description%></p>
-
+<h2>Upcoming Gigs:</h2>
+<% if !@band.gigs.empty? %>
+  <% @band.gigs.each do |gig|%>
+    <li><%= link_to "#{gig.name}", gig_path(gig) %></li>
+    <% end %>
+<% else %>
+  <p>This band has no upcoming shows</p>
+<% end %>
 <h2>Band Members</h2>
 
 <% @band.users.each do |user|%>

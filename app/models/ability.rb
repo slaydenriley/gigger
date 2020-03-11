@@ -14,10 +14,20 @@ class Ability
       elsif user.account_type == "band_member"
         can :manage, Band, user_ids: user.id
         can :manage, User, id: user.id
+        can :manage, Gig, id: user.id
         can :read, :all
       elsif user.account_type == "venue_manager"
-        can :manage, Venue, user_ids: user.id
+        Venue.all.each do |venue|
+          venue.users.each do |owners|
+            if owners.id == user.id
+              can :manage, venue
+              can :manage, venue
+            end
+          end
+        end
+        can :create, Venue
         can :manage, User, id: user.id
+        can :manage, Gig, id: user.id
         can :read, :all
       elsif user.account_type == "concert_goer"
         can :manage, User, id: user.id

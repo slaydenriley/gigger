@@ -5,17 +5,19 @@
 <%= @user.email %><br/>
 
 <% if @user.account_type == "venue_manager" %>
-  <h2>Venues I manage:</h2>
+  <h2>Venues <%= @user.name %> manages:</h2>
   <% @user.venues.each do |venue| %>
     <%= venue.name %><br/>
   <% end %>
-<% elsif @user.account_type == "band_manager" %>
-  <h2>My Bands:</h2>
+<% elsif @user.account_type == "band_member" %>
+  <h2><%= @user.name %>'s Bands</h2>
   <% @user.bands.each do |band| %>
     <%= band.name %><br/>
   <% end %>
 <% end %>
 
-
-<% if can? :update, @user %><%= link_to 'Edit Account', edit_user_path(@user) %><br/><% end %>
-<% if can? :destroy, @user %><%= link_to 'Delete', @user, method: :delete, data: { confirm: 'For real?' }  %><% end %>
+<% if @user == current_user %>
+  <h4>Account Actions</h4>
+  <% if can? :update, @user %><%= link_to 'Edit Account', edit_user_path(@user) %><br/><% end %>
+  <% if can? :destroy, @user %><%= link_to 'Delete', @user, method: :delete, data: { confirm: 'For real?' }  %><% end %>
+<% end %>

@@ -13,7 +13,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized
-    redirect_to root_path unless logged_in?
+    if !logged_in?
+      flash[:alert] = "You must be logged in to view this page! Please login or create an account"
+      redirect_to root_path
+    end
   end
 
   def deny_access

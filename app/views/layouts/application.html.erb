@@ -37,8 +37,13 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li class="nav-item">Logged in as: <%= link_to "#{current_user.name}", "/users/#{current_user.id}" %></li>
-          <li><%= link_to "Logout", session_path, method: "delete" %></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/<%="#{current_user.id}"%>">My Account</a>
+          </li>
+
+          <li><%= link_to "Logout", session_path, method: "delete", class:"nav-link" %>
+
+          </li>
         <% else %>
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>

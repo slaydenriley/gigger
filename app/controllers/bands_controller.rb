@@ -9,10 +9,11 @@ class BandsController < ApplicationController
 
   def create
     @band = current_user.bands.build(band_params)
-    if @band.save!
+    if @band.save
       current_user.bands << @band
       redirect_to band_path(@band)
     else
+      flash[:alert] = "Band must have a genre! Please select an existing genre or create a new one."
       @band.build_genre
       render :new
     end

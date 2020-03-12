@@ -4,6 +4,7 @@
     <title>Gigger</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -58,17 +59,17 @@
 
     <div class="container">
 
-    <% if flash[:denied] %>
-      <div class="alert alert-danger" role="alert">
-        <%= flash[:denied] %>
-      </div>
-    <% end %>
+      <% if flash[:denied] %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:denied] %>
+        </div>
+      <% end %>
 
-    <% if flash[:alert] %>
-      <div class="alert alert-warning" role="alert">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-warning" role="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
 
       <%= yield %>
     </div>

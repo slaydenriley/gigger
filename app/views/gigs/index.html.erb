@@ -11,7 +11,7 @@
 <%= month_calendar events: @gigs do |date, gigs| %>
   <%= date.day %>
   <% gigs.each do |gig| %>
-      <%= gig.name %><br/>
+      <%= link_to gig.name, gig_path(gig) %><br/>
       <%= gig.date.strftime("%l:%M %p") %>
   <% end %>
 <% end %>

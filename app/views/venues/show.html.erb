@@ -8,6 +8,15 @@
   <li><%= link_to "#{user.name}", "/users/#{user.id}" %></li>
 <% end %>
 
+<h2>Upcoming Gigs:</h2>
+<% if !@venue.gigs.empty? %>
+  <% @venue.gigs.each do |gig| %>
+    <li><%= link_to gig.name, venue_gig_url(gig) %></li>
+    <% end %>
+<% else %>
+  <p>This venue has no upcoming shows</p>
+<% end %>
+
 <br/>
 <% if can? :update, @venue %><%= link_to 'Edit Venue', edit_venue_path(@venue) %><% end %>
 <br/>

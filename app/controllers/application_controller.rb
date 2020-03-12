@@ -13,8 +13,6 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
-  private
-
   def authorized
     if !logged_in?
       flash[:alert] = "You must be logged in to view this page! Please login or create an account"

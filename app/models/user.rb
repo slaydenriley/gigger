@@ -10,6 +10,13 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :bands
   accepts_nested_attributes_for :venues
 
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :password,
+    presence: true,
+    confirmation: true,
+    :length => {:within => 6..40}
+    
   has_secure_password
 
   def self.create_with_omniauth(auth)

@@ -60,6 +60,7 @@ class UsersController < ApplicationController
       :name,
       :email,
       :password,
+      :password_confirmation,
       :description,
       :account_type
     )

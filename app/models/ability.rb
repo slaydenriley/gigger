@@ -7,7 +7,6 @@ class Ability
     can :read, :all
     can [:create, :new], User
     if user.present?
-      can :manage, User
       if user.admin?
         can :manage, :all
       # Band Member Authority

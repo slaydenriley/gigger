@@ -64,4 +64,8 @@ class UsersController < ApplicationController
       :account_type
     )
   end
+
+  def fb_params
+    params.require(:user).permit(:account_type)
+  end
 end

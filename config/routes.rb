@@ -9,8 +9,12 @@ Rails.application.routes.draw do
 
   resources :genres
   resources :gigs
-  resources :venues
-  resources :bands
+  resources :venues do
+    resources :gigs
+  end
+  resources :bands do
+    resources :gigs
+  end
   resources :users
   resources :venue_users
   resources :band_users

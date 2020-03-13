@@ -13,9 +13,9 @@
   <br/>
   <h3>Select or Add New Genre</h3>
   <%= f.fields_for :genre do |genre| %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true %><br/>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %><br/>
     <br/>
-    <%= genre.label :name, 'New Genre' %><br/>
+    <%= genre.label :name, 'Add new or enter manually' %><br/>
     <%= genre.text_field :name %><br/>
   <% end %>
   <br/>

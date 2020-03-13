@@ -10,6 +10,8 @@ class Band < ApplicationRecord
   accepts_nested_attributes_for :genre
   accepts_nested_attributes_for :gigs
 
+  validates :genre_id, presence: true
+
   def genre_attributes=(attributes)
       self.genre = Genre.find_or_create_by(attributes) if !attributes['name'].empty?
       self.genre

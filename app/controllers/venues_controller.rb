@@ -16,25 +16,18 @@ class VenuesController < ApplicationController
     end
   end
 
-  def join
-    @venue = Venue.find_by_id(params[:venue][:id])
-    if current_user.venues.exists?(@venue.id)
-      flash.now[:alert] = "Silly! You already manage this venue!"
-      render :new
-    else
-      current_user.venues << @venue
-      redirect_to venue_path(@venue)
-    end
-  end
-
   def edit
-    @venue = Venue.find(params[:id])
+    @venue = Venue.find_by_id(params[:id])
   end
 
   def update
-    @venue = Venue.find(params[:id])
-    @venue.update(venue_params)
-    redirect_to venue_path(@venue)
+    @venue = Venue.find_by_id(params[:id])
+    if @venue.update(venue_params)
+      redirect_to venue_path(@venue)
+    else
+      flash[:alert] = "Oops! There was an error. Please try again."
+      redirect_to edit_venue_path
+    end
   end
 
   def destroy

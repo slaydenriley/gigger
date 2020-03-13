@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.account_type == "band_member" || @user.account_type == "venue_manager" || @user.account_type == "concert_goer"
+    if @user.account_type_valid?
       if @user.save
         session[:user_id] = @user.id
         redirect_to user_path(@user)
@@ -32,10 +32,10 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = "Edit Successful."
-    redirect_to @user
+      redirect_to @user
     else
-      @title = "Edit user"
-    redirect_to edit_user_path
+      flash[:error] = "Oops! Something went wrong! Please try again"
+      render :edit
     end
   end
 
@@ -47,6 +47,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     elsif current_user.admin?
       @user.destroy
+      flash[:success] = "User deleted"
       redirect_to '/users'
     else
       redirect_to '/users'

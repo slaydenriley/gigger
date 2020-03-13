@@ -33,4 +33,8 @@ class User < ApplicationRecord
       @user.save
     end
   end
+
+  def account_type_valid?
+    self.account_type == "band_member" || self.account_type == "venue_manager" || self.account_type == "concert_goer"
+  end
 end

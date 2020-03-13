@@ -60,7 +60,11 @@
     <div class="container">
 
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}", class: "alert alert-warning" %>
+        <% if name == "success" %>
+          <%= content_tag :div, msg, id: "flash_#{name}", class: "alert alert-success" %>
+        <% else %>
+          <%= content_tag :div, msg, id: "flash_#{name}", class: "alert alert-warning" %>
+        <% end %>
       <% end %>
 
       <%= yield %>
@@ -68,7 +72,7 @@
   </body>
 
   <footer class="footer">
-    <div class="footer-copyright text-center py-3">© 2020 Copyright: Gigger | Created by Riley Slayden for Flat</div>
+    <div class="footer-copyright text-center py-3">© 2020 Copyright: Gigger | Created by Riley Slayden for Flatiron School</div>
   </footer>
 
 </html>

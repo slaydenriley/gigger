@@ -7,13 +7,15 @@ class SessionsController < ApplicationController
     if request.env['omniauth.auth']
       user = User.create_with_omniauth(request.env['omniauth.auth'])
       session[:user_id] = user.id
+      flash[:success] = "Successfully logged in!"
       redirect_to user_path(user.id)
-      @user = User.find_by(email: params[:email])
+      #@user = User.find_by(email: params[:email])
     else
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
         redirect_to '/'
       else
+        flash[:error] = "Oops. That didn't work. Please try again."
         redirect_to '/login'
       end
     end

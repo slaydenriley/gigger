@@ -1,2 +1,22 @@
-<h1>Welcome to Gigger!</h1>
-<h2>A gig management system for bands and venues</h2>
+<div class="col">
+  <h1 class="text-center">Welcome to Gigger!</h1><br/>
+  <h2 class="text-center">A gig management system for bands and venues. A way for music lovers to find shows.</h2>
+</div>
+
+<div class="row home-links">
+  <div class="col">
+    <div class="text-center">
+      <h3>Login</h3>
+      <p><%= render partial: "/sessions/form" %></p>
+    </div>
+  </div>
+  <div class="col or">
+    <h1 class="text-center">Or</h1>
+  </div>
+  <div class="col">
+    <div class="text-center">
+      <h3><%= link_to "Sign Up", new_user_path %></h3><br/>
+      <h4><%= link_to('Sign up with Facebook!', '/auth/facebook') %></h4>
+    </div>
+  </div>
+</div>

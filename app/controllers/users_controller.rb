@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by_id(params[:id])
   end
 
   def show
@@ -30,9 +30,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      flash[:success] = "Edit Successful."
+    redirect_to @user
+    else
+      @title = "Edit user"
+    redirect_to edit_user_path
+    end
   end
 
   def destroy

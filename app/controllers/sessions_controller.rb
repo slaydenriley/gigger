@@ -9,11 +9,12 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "Successfully logged in!"
       redirect_to user_path(user.id)
-      #@user = User.find_by(email: params[:email])
     else
-      if @user && @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        redirect_to '/'
+      user = User.find_by(email: params[:email])
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        flash[:success] = "Successfully logged in!"
+        redirect_to user_path(user.id)
       else
         flash[:error] = "Oops. That didn't work. Please try again."
         redirect_to '/login'

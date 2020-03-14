@@ -1,17 +1,34 @@
-<h1>All Shows!</h1>
+<div class="col">
+  <h1 class="text-center">All Shows</h1>
+</div>
 
-<% if can? :create, @gig %>
-  <h4><%= link_to 'Add New Gig', "/gigs/new" %> </h4>
-<% end %>
-
-<% @gigs.each do |gig| %>
-  <li><%= link_to gig.name, gig_path(gig) %></li><br/>
-<% end %>
-
-<%= month_calendar events: @gigs do |date, gigs| %>
-  <%= date.day %>
-  <% gigs.each do |gig| %>
-      <%= link_to gig.name, gig_path(gig) %><br/>
-      <%= gig.date.strftime("%l:%M %p") %>
+<div class="col calendar-col">
+  <%= month_calendar events: @gigs do |date, gigs| %>
+    <%= date.day %>
+      <% gigs.each do |gig| %>
+        <%= link_to gig.name, gig_path(gig) %><br/>
+        <%= gig.date.strftime("%l:%M %p") %>
+      <% end %>
   <% end %>
-<% end %>
+</div>
+
+<div>
+  <% @gigs.each_slice(3) do |gigs| %>
+  <div class="row band-row">
+    <% gigs.each do |gig| %>
+    <div class="card mt-5 text-center band-cards" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title band-title"> <%= gig.name %></h5>
+        <a href="/gigs/<%="#{gig.id}"%>" class="btn btn-primary btn-band">Learn More</a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
+<div class="col text-center add-new-col">
+  <% if can? :create, @gig %>
+    <h4><%= link_to 'Add a New Gig', "/gigs/new" %></h4>
+  <% end %>
+</div>

@@ -1,20 +1,26 @@
+<div class="col">
+  <h1 class="text-center">All Bands</h1>
+</div>
 
-
-
-<div class="row">
-  <div class="col" align="center">
-    <h1>All Bands</h1>
-    <% @bands.each do |band| %>
-      <li>
-        <h4><%= link_to band.name, band_path(band) %></h4><br/>
-      </li>
+<% @bands.each_slice(3) do |bands| %>
+  <div class="row band-row">
+    <% bands.each do |band| %>
+        <div class="card mt-3 text-center band-cards" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"> <%= band.name %></h5>
+            <p class="card-text"> <%= band.description %></p>
+            <a href="/bands/<%="#{band.id}"%>" class="btn btn-primary">Check them out!</a>
+          </div>
+        </div>
     <% end %>
   </div>
+<% end %>
 
-  <div class="col">
-    <% if can? :create, @band %>
-      <h4><%= link_to 'Create a New Band', "/bands/new" %></h4>
-      <p>To join an existing band, the band administrators must add you from their end.</p>
-      <% end %>
-  </div>
+
+
+<div class="col text-center add-new-col">
+  <% if can? :create, @band %>
+    <h4><%= link_to 'Create a New Band', "/bands/new" %></h4>
+    <p>To join an existing band, the band administrators must add you from their end.</p>
+    <% end %>
 </div>

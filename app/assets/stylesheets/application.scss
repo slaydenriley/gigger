@@ -5,7 +5,7 @@
 @import "bootstrap";
 
 .container {
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 100px;
 }
 
@@ -67,5 +67,14 @@ body {
 }
 
 .card {
-  height: 200px;
+  height: 220px;
+}
+
+.band-cards {
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.add-new-col {
+  padding-top: 30px;
 }

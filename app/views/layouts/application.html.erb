@@ -55,9 +55,15 @@
         <% end %>
       </ul>
     </nav>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><%= link_to 'Back', 'javascript:history.back()' %></li>
+        </ol>
+    </nav>
 
 
     <div class="container">
+
 
       <% flash.each do |name, msg| %>
         <% if name == "success" %>

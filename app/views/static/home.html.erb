@@ -6,17 +6,11 @@
 <div class="row home-links">
   <div class="col">
     <div class="text-center">
-      <h3>Login</h3>
-      <p><%= render partial: "/sessions/form" %></p>
-    </div>
-  </div>
-  <div class="col or">
-    <h1 class="text-center">Or</h1>
-  </div>
-  <div class="col">
-    <div class="text-center">
-      <h3><%= link_to "Sign Up", new_user_path %></h3><br/>
-      <h4><%= link_to('Sign up with Facebook!', '/auth/facebook') %></h4>
+      <h3><em>Please sign in...</em></h3>
+      <br/>
+      <h4><%= render partial: "/sessions/form" %></h4>
+      <h4 class="fb-button"><%= link_to('Login (or sign up) with Facebook!', '/auth/facebook') %></h4>
+      <p><%= link_to "Manual Sign Up", new_user_path %></p><br/>
     </div>
   </div>
 </div>

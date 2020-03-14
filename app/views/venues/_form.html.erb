@@ -11,5 +11,5 @@
   <%= f.label :users, "Add Additional Managers/Admins (if they have an account)" %><br/>
   <%= f.collection_check_boxes :user_ids, User.where(account_type: "venue_manager"), :id, :name, include_hidden: false %><br/>
   <br/>
-  <%= f.submit "Create Venue" %>
+  <%= f.submit "Create Venue", class: 'btn btn-default' %>
 <% end %>

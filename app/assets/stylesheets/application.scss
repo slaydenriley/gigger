@@ -67,7 +67,8 @@ body {
 }
 
 .card {
-  height: 220px;
+  /*height: 220px;*/
+  border-radius: 10px;
 }
 
 .band-cards {
@@ -77,4 +78,23 @@ body {
 
 .add-new-col {
   padding-top: 30px;
+}
+
+.band-title {
+  font-size: 20px;
+}
+
+.btn {
+  background: #333a40;
+  color: white;
+  border-radius: 100px;
+  margin: 0 auto;
+  padding: 10px;
+  transition: transform .2s ease-in-out;
+  border: none;
+  position: bottom;
+}
+
+.btn:hover {
+  transform: scale(1.1);
 }

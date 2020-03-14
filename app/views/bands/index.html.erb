@@ -5,11 +5,11 @@
 <% @bands.each_slice(3) do |bands| %>
   <div class="row band-row">
     <% bands.each do |band| %>
-        <div class="card mt-3 text-center band-cards" style="width: 18rem;">
+        <div class="card mt-5 text-center band-cards" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title"> <%= band.name %></h5>
+            <h5 class="card-title band-title"> <%= band.name %></h5>
             <p class="card-text"> <%= band.description %></p>
-            <a href="/bands/<%="#{band.id}"%>" class="btn btn-primary">Check them out!</a>
+            <a href="/bands/<%="#{band.id}"%>" class="btn btn-primary btn-band">Learn More</a>
           </div>
         </div>
     <% end %>

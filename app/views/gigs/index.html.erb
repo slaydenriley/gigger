@@ -2,16 +2,6 @@
   <h1 class="text-center">All Shows</h1>
 </div>
 
-<div class="col calendar-col">
-  <%= month_calendar events: @gigs do |date, gigs| %>
-    <%= date.day %>
-      <% gigs.each do |gig| %>
-        <%= link_to gig.name, gig_path(gig) %><br/>
-        <%= gig.date.strftime("%l:%M %p") %>
-      <% end %>
-  <% end %>
-</div>
-
 <div>
   <% @gigs.each_slice(3) do |gigs| %>
   <div class="row band-row">
@@ -30,5 +20,15 @@
 <div class="col text-center add-new-col">
   <% if can? :create, @gig %>
     <h4><%= link_to 'Add a New Gig', "/gigs/new" %></h4>
+  <% end %>
+</div>
+
+<div class="col calendar-col text-center">
+  <%= month_calendar events: @gigs do |date, gigs| %>
+    <%= date.day %>
+      <% gigs.each do |gig| %>
+        <%= link_to gig.name, gig_path(gig) %><br/>
+        <%= gig.date.strftime("%l:%M %p") %>
+      <% end %>
   <% end %>
 </div>

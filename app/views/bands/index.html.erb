@@ -2,21 +2,29 @@
   <h1 class="text-center">All Bands</h1>
 </div>
 
+
+<div class="band-filter text-center">
+  <h3>Filter by Genre</h3>
+  <%= form_tag(bands_path, method: :get) do %>
+    <%= select_tag 'genre_id', options_for_select(@genres.collect{ |g| [g.name, g.id] }), prompt: "Select Genre" %>
+    <%= submit_tag 'Search', class:"btn btn-default" %>
+  <% end %>
+</div>
+
+
 <% @bands.each_slice(3) do |bands| %>
   <div class="row band-row">
     <% bands.each do |band| %>
-        <div class="card mt-5 text-center band-cards" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title band-title"> <%= band.name %></h5>
-            <p class="card-text"> <%= band.description %></p>
-            <a href="/bands/<%="#{band.id}"%>" class="btn btn-primary btn-band">Learn More</a>
-          </div>
+      <div class="card mt-5 text-center band-cards" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title band-title"> <%= band.name %></h5>
+          <p class="card-text"> <%= band.description %></p>
+          <a href="/bands/<%="#{band.id}"%>" class="btn btn-primary btn-band">Learn More</a>
         </div>
+      </div>
     <% end %>
   </div>
 <% end %>
-
-
 
 <div class="col text-center add-new-col">
   <% if can? :create, @band %>

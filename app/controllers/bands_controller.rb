@@ -46,7 +46,9 @@ class BandsController < ApplicationController
 
   def index
     @bands = Band.all
+    @bands = @bands.where(genre_id: params[:genre_id]) if params[:genre_id].present?
     @band = Band
+    @genres = Genre.all
   end
 
   private

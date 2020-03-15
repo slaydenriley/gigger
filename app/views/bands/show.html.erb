@@ -1,23 +1,47 @@
-<h1><%=@band.name%></h1>
-<h2>Genre:</h2>
-<p><%= @band.genre.name %></p>
-<h2>Description:</h2>
-<p><%=@band.description%></p>
-<h2>Upcoming Gigs:</h2>
-<% if !@band.gigs.empty? %>
-  <% @band.gigs.each do |gig| %>
-    <li><%= link_to gig.name, band_gig_url(gig) %></li>
+<div class="text-center">
+  <h1><%=@band.name%></h1>
+</div>
+
+<div class="row text-center">
+  <div class="col">
+    <h2>Genre</h2>
+    <h5><%= @band.genre.name %></h5>
+    <h2>Description</h2>
+    <h5><%=@band.description%></h5>
+  </div>
+
+  <div class="col">
+    <h2>Upcoming Gigs</h2>
+    <% if !@band.gigs.empty? %>
+      <% @band.gigs.each do |gig| %>
+        <h5><li><%= link_to gig.name, band_gig_url(gig) %></li></h5>
+        <% end %>
+    <% else %>
+      <h5>This band has no upcoming shows</h5>
     <% end %>
-<% else %>
-  <p>This band has no upcoming shows</p>
-<% end %>
-<h2>Band Members</h2>
+  </div>
+</div>
 
-<% @band.users.each do |user|%>
-  <li><%= link_to "#{user.name}", "/users/#{user.id}" %></li>
-<% end %>
-<br/>
 
-<% if can? :update, @band %><%= link_to 'Edit Band', edit_band_path(@band) %><% end %>
-<br/>
-<% if can? :destroy, @band %><%= link_to 'Delete', @band, method: 'delete' %><% end %>
+<div class="band-members">
+  <h2 class="text-center">Band Members</h2>
+  <% @band.users.each_slice(3) do |users| %>
+    <div class="row band-row">
+      <% users.each do |user| %>
+        <div class="card mt-5 text-center band-cards" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title band-title"> <%= user.name %></h5>
+            <p class="card-text"> <%= user.description %></p>
+            <a href="/users/<%="#{user.id}"%>" class="btn btn-primary btn-band">Learn More</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="text-center">
+  <% if can? :update, @band %><%= link_to 'Edit Band', edit_band_path(@band) %><% end %>
+  <br/>
+  <% if can? :destroy, @band %><%= link_to 'Delete', @band, method: 'delete' %><% end %>
+</div>

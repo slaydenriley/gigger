@@ -4,10 +4,10 @@
 
 
 <div class="band-filter text-center">
-  <h3>Filter by Genre</h3>
+  <h5>Filter by Genre</h5>
   <%= form_tag(bands_path, method: :get) do %>
     <%= select_tag 'genre_id', options_for_select(@genres.collect{ |g| [g.name, g.id] }), prompt: "Select Genre" %>
-    <%= submit_tag 'Search', class:"btn btn-default" %>
+    <%= submit_tag 'Search' %>
   <% end %>
 </div>
 
@@ -25,6 +25,7 @@
     <% end %>
   </div>
 <% end %>
+
 
 <div class="col text-center add-new-col">
   <% if can? :create, @band %>

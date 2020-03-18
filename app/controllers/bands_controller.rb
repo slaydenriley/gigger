@@ -10,7 +10,6 @@ class BandsController < ApplicationController
   def create
     @band = current_user.bands.build(band_params)
     if @band.save
-      current_user.bands << @band
       redirect_to band_path(@band)
     else
       @band.build_genre
@@ -38,7 +37,7 @@ class BandsController < ApplicationController
   end
 
   def destroy
-    @band = Band.find_by(params[:id])
+    @band = Band.find_by_id(params[:id])
     @band.destroy
     redirect_to '/bands'
   end

@@ -25,8 +25,11 @@ class GigsController < ApplicationController
 
   def update
     @gig = Gig.find(params[:id])
-    @gig.update(gig_params)
-    redirect_to gig_path(@gig)
+    if @gig.update(gig_params)
+      redirect_to gig_path(@gig)
+    else
+      render :edit
+    end
   end
 
   def destroy

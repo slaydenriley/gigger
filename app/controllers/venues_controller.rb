@@ -9,7 +9,6 @@ class VenuesController < ApplicationController
   def create
     @venue = current_user.venues.build(venue_params)
     if @venue.save
-      current_user.venues << @venue
       redirect_to venue_path(@venue)
     else
       render :new
@@ -30,7 +29,7 @@ class VenuesController < ApplicationController
   end
 
   def destroy
-    @venue = Venue.find_by(params[:id])
+    @venue = Venue.find_by_id(params[:id])
     @venue.destroy
     redirect_to '/venues'
   end

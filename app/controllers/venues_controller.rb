@@ -25,8 +25,7 @@ class VenuesController < ApplicationController
     if @venue.update(venue_params)
       redirect_to venue_path(@venue)
     else
-      flash[:alert] = "Oops! There was an error. Please try again."
-      redirect_to edit_venue_path
+      render :edit
     end
   end
 

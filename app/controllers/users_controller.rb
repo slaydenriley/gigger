@@ -34,7 +34,6 @@ class UsersController < ApplicationController
       flash[:success] = "Edit Successful."
       redirect_to @user
     else
-      flash[:error] = "Oops! Something went wrong! Please try again"
       render :edit
     end
   end

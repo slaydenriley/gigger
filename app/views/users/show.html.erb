@@ -1,31 +1,42 @@
-<h1><%= @user.name %></h1>
-<h2>About:</h2>
-<%= @user.description %>
-<h2>Contact</h2>
-<%= @user.email %><br/>
+<div class="text-center">
+  <h1><%= @user.name %></h1>
+</div>
 
-<% if @user.account_type == "venue_manager" %>
-  <h2>Venues <%= @user.name %> manages:</h2>
-  <% @user.venues.each do |venue| %>
-    <%= link_to "#{venue.name}", "/venues/#{venue.id}" %><br/>
+<div class="row text-center user-body">
+  <div class="col">
+    <h2>About</h2>
+    <h5><%= @user.description %></h5>
+    <h2>Contact</h2>
+    <h5><%=mail_to(@user.email)%></h5>
+  </div>
+
+  <div class="col">
+    <% if @user.account_type == "venue_manager" %>
+      <h2>Venues <%= @user.name %> manages:</h2>
+      <% @user.venues.each do |venue| %>
+        <h5><%= link_to "#{venue.name}", "/venues/#{venue.id}" %><br/></h5>
+      <% end %>
+    <% elsif @user.account_type == "band_member" %>
+      <h2><%= @user.name %>'s Bands</h2>
+      <% @user.bands.each do |band| %>
+        <h5><%= link_to "#{band.name}", "/bands/#{band.id}" %><br/></h5>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="text-center">
+  <% if @user == current_user || current_user.admin? %>
+    <h4>Account Actions</h4>
+
+    <% if can? :update, @user %>
+      <h5><%= link_to 'Edit Account', edit_user_path(@user) %></h5>
+    <% end %>
+
+
+    <% if can? :destroy, @user %>
+      <h5><%= link_to 'Delete', @user, method: :delete, data: { confirm: 'For real?' }  %></h5>
+    <% end %>
+
   <% end %>
-<% elsif @user.account_type == "band_member" %>
-  <h2><%= @user.name %>'s Bands</h2>
-  <% @user.bands.each do |band| %>
-    <%= link_to "#{band.name}", "/bands/#{band.id}" %><br/>
-  <% end %>
-<% end %>
-
-<% if @user == current_user || current_user.admin? %>
-  <h4>Account Actions</h4>
-
-  <% if can? :update, @user %>
-    <%= link_to 'Edit Account', edit_user_path(@user) %>
-  <% end %>
-  <br/>
-
-  <% if can? :destroy, @user %>
-    <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'For real?' }  %>
-  <% end %>
-
-<% end %>
+</div>

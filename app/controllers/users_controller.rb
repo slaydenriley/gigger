@@ -55,6 +55,16 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    if params[:option].present?
+      case params[:option]
+      when "1"
+        @users = @users.band_member
+      when "2"
+        @users = @users.venue_manager
+      when "3"
+        @users = @users.concert_goer
+      end
+    end
   end
 
   private

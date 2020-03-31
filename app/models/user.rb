@@ -18,6 +18,10 @@ class User < ApplicationRecord
     :length => {:within => 6..40},
     on: :create
 
+  scope :band_member, -> {where(account_type: "band_member")}
+  scope :venue_manager, -> {where(account_type: "venue_manager")}
+  scope :concert_goer, -> {where(account_type: "concert_goer")}
+
   has_secure_password
 
   def self.create_with_omniauth(auth)

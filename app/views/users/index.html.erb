@@ -5,7 +5,7 @@
 <div class="band-filter text-center">
   <h5>Filter by Account Type</h5>
   <%= form_tag(users_path, method: :get) do %>
-    <%= select_tag(:option, options_for_select([["Band Members",1],["Venue Managers",2],["Concert Goers",3]], params[:option] ), prompt: "Select") %>
+    <%= select_tag(:option, options_for_select([["Band Members",1],["Venue Managers",2],["Concert Goers",3]], params[:option] ), prompt: "All") %>
     <%= submit_tag 'Search' %>
   <% end %>
 </div>

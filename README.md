@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+Gigger is a management system for bands and venues to keep track of upcoming shows. It also allows for concert-goers to view shows and details about bands and venues, as well as connect with other users. There are 3 main account types in Gigger: "Band Member," "Venue Manager," and "Concert-Goer." Each account type has different abilities and features.
 
-* Ruby version
+## Installation
 
-* System dependencies
+This app requires Ruby 2.3.1 and Rails 5.1.4.
 
-* Configuration
+Once you have Ruby 2.3.1 and Rails 5.1.4 installed,
 
-* Database creation
+* ```fork https://github.com/slaydenriley/gigger & clone locally```
+* ```cd gigger from your local directory```
+* ```bundle install```
+* ```rake db:migrate```
+* ```rake db:seed```
+* ```rails s```
+* ```open browser to localhost:3000```
+* ```Sign up for an Account or Login/Create an Account using Facebook```
 
-* Database initialization
+## Contributing
 
-* How to run the test suite
+Bug reports and pull requests are welcome on GitHub at  https://github.com/slaydenriley/gigger. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
-
-* ...
+This Web Application is available as open source under the terms of the MIT License.

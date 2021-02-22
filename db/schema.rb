@@ -12,28 +12,31 @@
 
 ActiveRecord::Schema.define(version: 2020_03_11_203625) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "band_users", force: :cascade do |t|
     t.integer "user_id"
     t.integer "band_id"
   end
 
   create_table "bands", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.text "description"
     t.integer "genre_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
+    t.text "email"
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "gigs", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.integer "band_id"
     t.integer "venue_id"
     t.datetime "created_at", precision: 6, null: false
@@ -42,17 +45,17 @@ ActiveRecord::Schema.define(version: 2020_03_11_203625) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
+    t.text "name"
+    t.text "email"
+    t.text "password_digest"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "account_type"
+    t.text "account_type"
     t.boolean "admin", default: false
-    t.string "uid"
-    t.string "provider"
-    t.string "image"
+    t.text "uid"
+    t.text "provider"
+    t.text "image"
   end
 
   create_table "venue_users", force: :cascade do |t|
@@ -63,11 +66,11 @@ ActiveRecord::Schema.define(version: 2020_03_11_203625) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
+    t.text "email"
   end
 
 end

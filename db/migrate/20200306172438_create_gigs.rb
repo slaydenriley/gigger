@@ -1,7 +1,7 @@
 class CreateGigs < ActiveRecord::Migration[6.0]
   def change
     create_table :gigs do |t|
-      t.string :name
+      t.text :name
       t.date :date
       t.time :time
       t.integer :band_id

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
-  delete '/session', to: 'sessions#destroy'
+  get '/session', to: 'sessions#destroy'
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 

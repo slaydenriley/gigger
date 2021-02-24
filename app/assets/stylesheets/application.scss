@@ -38,6 +38,19 @@ body {
 
 .home-links {
   padding-top: 60px;
+  background: lightgrey;
+  width: 50%;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 0.75rem grey);
+  margin-top: 30px;
+  border-radius: 15px;
+}
+
+input {
+  padding: 15px;
+  font-size: 20px;
+  width: 50%;
+  text-align: center;
 }
 
 .or {
@@ -97,13 +110,6 @@ body {
 
 .btn:hover {
   transform: scale(1.1);
-}
-
-input {
-  text-align: center;
-  font-size: 24px;
-  padding: 10px;
-  width: 200px;
 }
 
 .calendar-title {

@@ -1,12 +1,11 @@
 <%= form_tag("/login", method: "post") do %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <p>Email:</p>
-  <%= email_field_tag :email %>
   <br/>
-  <p>Password:</p>
-  <%= password_field_tag :password %>
+  <%= email_field_tag :email, "", placeholder: "Email" %>
+  <br/>
+  <br/>
+  <%= password_field_tag :password, "", placeholder: "Password" %>
   <br/>
   <br/>
   <%= submit_tag "Sign In", class: 'btn btn-default' %>
 <% end %>
-<br/>

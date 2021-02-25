@@ -54,13 +54,6 @@
     </nav>
 
     <div class="important-info">
-      <% if current_user %>
-        <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><%= link_to 'Back', 'javascript:history.back()' %></li>
-            </ol>
-        </nav>
-      <% end %>
 
       <% flash.each do |name, msg| %>
         <% if name == "success" %>

@@ -1,11 +1,8 @@
 <%= form_tag("/login", method: "post") do %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <br/>
   <%= email_field_tag :email, "", placeholder: "Email" %>
-  <br/>
-  <br/>
   <%= password_field_tag :password, "", placeholder: "Password" %>
-  <br/>
-  <br/>
-  <%= submit_tag "Sign In", class: 'btn btn-default' %>
+  <%= submit_tag "Sign In", class: 'btn btn-default' %><br/>
+  <div class="fb-button"><%= link_to('Login with Facebook', '/auth/facebook') %></div>
+  <p><%= link_to "Sign Up", new_user_path %></p>
 <% end %>

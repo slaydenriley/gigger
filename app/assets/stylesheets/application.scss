@@ -9,6 +9,16 @@
   color: #000;
 }
 
+.line {
+  border: 1px solid black;
+}
+
+.account-page {
+  border: 1px solid black;
+  padding: 15px;
+  background: lightgrey
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -45,28 +55,29 @@ input {
   font-size: 20px;
   width: 50%;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .or {
   padding-top: 50px;
 }
 
+
+
 .fb-button {
   background: #4267b2;
-  border-radius: 50px;
-  width: 400px;
   margin: 0 auto;
+  margin-top: 10px;
   padding: 10px;
   transition: transform .2s ease-in-out;
+  width: 50%;
+  font-size: 1rem;
+  font-weight: 400
 }
 
 .fb-button a {
   color: #fff;
   text-decoration: none;
-}
-
-.fb-button:hover {
-  transform: scale(1.1);
 }
 
 .home-cards {
@@ -93,16 +104,12 @@ input {
 .btn {
   background: #333a40;
   color: white;
-  border-radius: 100px;
   margin: 0 auto;
   padding: 10px;
   transition: transform .2s ease-in-out;
   border: none;
   position: bottom;
-}
-
-.btn:hover {
-  transform: scale(1.1);
+  border-radius: 0px;
 }
 
 .calendar-title {

@@ -1,2 +1,0 @@
-class VenueUsersController < ApplicationController
-end

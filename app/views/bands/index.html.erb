@@ -7,7 +7,7 @@
   <h5>Filter by Genre</h5>
   <%= form_tag(bands_path, method: :get) do %>
     <%= select_tag 'genre_id', options_for_select(@genres.collect{ |g| [g.name, g.id] }), prompt: "All" %>
-    <%= submit_tag 'Search' %>
+    <%= submit_tag("Search", :class=>"search-button", :name=>"submit")%>
   <% end %>
 </div>
 

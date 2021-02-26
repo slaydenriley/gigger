@@ -11,12 +11,21 @@
 
 .line {
   border: 1px solid black;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .account-page {
-  border: 1px solid black;
   padding: 15px;
-  background: lightgrey
+  background: white;
+  filter: drop-shadow(0 0 0.5rem lightgrey);
+  border-radius: 5px;
+  margin-bottom: 40px;
+
+}
+
+.user-about {
+  margin-bottom: 30px;
 }
 
 *{
@@ -30,7 +39,9 @@ html {
 }
 body {
   margin-bottom: 60px;
+  background: #f3f2ee;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -40,8 +51,15 @@ body {
   border-top: 3px solid #d4edda;
 }
 
+.search-button {
+  font-size: 12px;
+  width: 100px;
+  background: lightgreen;
+  border: 1px solid grey;
+
+}
 .home-links {
-  padding-top: 60px;
+  padding-top: 20px;
   background: #d4edda;
   width: 50%;
   margin: 0 auto;
@@ -133,4 +151,5 @@ input {
 
 .user-body {
   padding-top: 50px;
+
 }

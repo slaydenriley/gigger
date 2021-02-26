@@ -76,7 +76,8 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation,
       :description,
-      :account_type
+      :account_type,
+      :image
     )
   end
 end

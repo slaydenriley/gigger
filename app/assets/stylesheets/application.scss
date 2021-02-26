@@ -9,6 +9,15 @@
   color: #000;
 }
 
+.profile-image {
+  width: 200px;
+  padding: 20px;
+}
+
+input.submit {
+  width: 10%;
+}
+
 .line {
   border: 1px solid black;
   width: 60%;
@@ -102,6 +111,7 @@ input {
 
 .card {
   border-radius: 10px;
+  height: 200px;
 }
 
 .band-cards {
@@ -125,7 +135,6 @@ input {
   padding: 10px;
   transition: transform .2s ease-in-out;
   border: none;
-  position: bottom;
   border-radius: 0px;
 }
 

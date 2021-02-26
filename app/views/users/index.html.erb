@@ -16,6 +16,7 @@
         <div class="card mt-5 text-center band-cards" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title band-title"> <%= user.name %></h5>
+            <img src=<%= user.image %> alt="profile" class="profile-image"/>
             <p class="card-text"> <%= user.description %></p>
             <a href="/users/<%="#{user.id}"%>" class="btn btn-primary btn-band">View Profile</a>
           </div>

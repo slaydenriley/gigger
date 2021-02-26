@@ -60,13 +60,16 @@ body {
   border-top: 3px solid #d4edda;
 }
 
-.search-button {
-  font-size: 12px;
-  width: 100px;
-  background: lightgreen;
+.search-button, select {
+  font-size: 15px;
+  width: 150px;
+  background: white;
   border: 1px solid grey;
-
+  padding: 5px;
+  margin: none;
+  font-weight: bolder;
 }
+
 .home-links {
   padding-top: 20px;
   background: #d4edda;
@@ -89,8 +92,11 @@ input {
   padding-top: 50px;
 }
 
-.fb-button {
+.fb-button, .signup-button {
   background: #4267b2;
+  color: white;
+  font-weight: bolder;
+  border: none;
   margin: 0 auto;
   margin-top: 10px;
   padding: 10px;
@@ -98,6 +104,12 @@ input {
   width: 50%;
   font-size: 1rem;
   font-weight: 400
+}
+
+.signup-button {
+  background: white;
+  color: black;
+  border: 1px solid black;
 }
 
 .fb-button a {

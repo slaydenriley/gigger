@@ -14,10 +14,6 @@
   padding: 20px;
 }
 
-input.submit {
-  width: 10%;
-}
-
 .line {
   border: 1px solid black;
   width: 60%;
@@ -46,19 +42,24 @@ html {
   position: relative;
   min-height: 100%;
 }
+
 body {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   background: #f3f2ee;
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: 40px;
   background: #d4edda;
-  border-top: 3px solid #d4edda;
+  border-top: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .search-button, select {
   font-size: 15px;
@@ -78,6 +79,7 @@ body {
   filter: drop-shadow(0 0 0.75rem grey);
   margin-top: 30px;
   border-radius: 15px;
+  border: 1px solid black;
 }
 
 input {
@@ -102,20 +104,20 @@ input {
   padding: 10px;
   transition: transform .2s ease-in-out;
   width: 50%;
-  font-size: 1rem;
   font-weight: 400
+}
+
+.navbar, .footer {
+  filter: drop-shadow(0 0 0.75rem grey);
 }
 
 .signup-button {
   background: white;
   color: black;
   border: 1px solid black;
+  margin-bottom: 15px;
 }
 
-.fb-button a {
-  color: #fff;
-  text-decoration: none;
-}
 
 .home-cards {
   padding-top: 40px;
@@ -148,6 +150,7 @@ input {
   transition: transform .2s ease-in-out;
   border: none;
   border-radius: 0px;
+  font-weight: 400;
 }
 
 .calendar-title {

@@ -73,13 +73,17 @@ body {
 
 .home-links {
   padding-top: 20px;
-  background: #d4edda;
+  background: rgb(15,149,255);
+  background: linear-gradient(180deg, rgba(15,149,255,1) 0%, rgba(52,107,195,1) 100%);
   width: 50%;
   margin: 0 auto;
   filter: drop-shadow(0 0 0.75rem grey);
   margin-top: 30px;
   border-radius: 15px;
-  border: 1px solid black;
+}
+
+.home-links h3, .home-links hr {
+  color: white;
 }
 
 input {
@@ -104,11 +108,30 @@ input {
   padding: 10px;
   transition: transform .2s ease-in-out;
   width: 50%;
-  font-weight: 400
+  font-weight: 400;
+  border: 1px solid white;
+}
+
+.alert-warning {
+  background: rgb(255,214,15);
+  background: linear-gradient(233deg, rgba(255,214,15,1) 10%, rgba(255,248,119,1) 81%);
+  color: black;
+}
+
+.alert-success {
+  color: white;
+  background: rgb(21,255,21);
+  background: linear-gradient(233deg, rgba(21,255,21,1) 0%, rgba(7,61,32,1) 100%);
 }
 
 .navbar, .footer {
   filter: drop-shadow(0 0 0.75rem grey);
+  background: black;
+  color: #f3f2ee;
+}
+
+.navbar a {
+  color: #f3f2ee;
 }
 
 .signup-button {

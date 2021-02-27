@@ -56,6 +56,7 @@ class BandsController < ApplicationController
       :name,
       :email,
       :description,
+      :image_link,
       :genre_id,
       genre_attributes:[:name],
       user_ids:[],

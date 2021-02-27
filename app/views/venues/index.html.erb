@@ -2,23 +2,24 @@
   <h1 class="text-center">All Venues</h1>
 </div>
 
-<% @venues.each_slice(3) do |venues| %>
-  <div class="row band-row">
-    <% venues.each do |venue| %>
-        <div class="card mt-5 text-center band-cards" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title band-title"> <%= venue.name %></h5>
-            <p class="card-text"> <%= venue.description %></p>
-            <a href="/venues/<%="#{venue.id}"%>" class="btn btn-primary btn-band">Learn More</a>
-          </div>
-        </div>
+<div class="index-data">
+<div class="band-create-link">
+  <% if can? :create, @venue %>
+    <h4><%= link_to 'Create a New Venue', "/venues/new" %></h4>
     <% end %>
+</div>
+
+</div>
+
+<hr class="black-line"/>
+
+<div class="all-bands">
+<% @venues.each do |venue| %>
+  <div class="bands">
+    <img src=<%= venue.image_link %> alt="venue-image" class="band-image"/>
+    <h2> <%= venue.name %></h2>
+    <p class="card-text"> <%= venue.description %></p>
+    <a href="/venues/<%="#{venue.id}"%>" class="">Learn More</a>
   </div>
 <% end %>
-
-<div class="col text-center add-new-col">
-  <% if can? :create, @venue %>
-    <h4><%= link_to 'Add a New Venue', "/venues/new" %></h4>
-    <p>To join an existing venue, the venue administrators must add you from their end.</p>
-    <% end %>
 </div>

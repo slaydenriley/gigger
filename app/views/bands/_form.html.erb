@@ -2,6 +2,7 @@
   <%= f.text_field :name, placeholder: "Band name" %>
   <%= f.email_field :email, placeholder: "Band Email" %>
   <%= f.text_area :description, placeholder: "Band Bio" %>
+  <%= f.text_field :image_link, placeholder: "Image Link" %>
   <h3>Add Members (if they have an account)</h3>
   <%= f.collection_check_boxes :user_ids, User.where(account_type: "band_member"), :id, :name, include_hidden: false %><br/>
   <br/>

@@ -41,7 +41,11 @@
 </div>
 
 <div class="text-center">
-  <% if can? :update, @band %><%= link_to 'Edit Band', edit_band_path(@band) %><% end %>
+  <% if can? :update, @band %>
+    <%= button_to 'Edit Band', edit_band_path(@band) %>
+  <% end %>
   <br/>
-  <% if can? :destroy, @band %><%= link_to 'Delete', @band, method: 'delete' %><% end %>
+  <% if can? :destroy, @band %>
+    <%= button_to 'Delete', @user, method: :delete, data: { confirm: 'For real?' }  %>
+  <% end %>
 </div>

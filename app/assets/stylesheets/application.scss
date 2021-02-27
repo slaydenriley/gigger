@@ -14,6 +14,46 @@
   padding: 20px;
 }
 
+.bands {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-top: 2px solid black;
+  padding: 20px 0px;
+  position: relative;
+}
+
+.band-filter {
+  float: right;
+}
+
+.band-create-link {
+  float: left;
+}
+
+.index-data {
+  overflow: hidden;
+}
+
+.all-bands {
+  overflow: hidden;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  filter: drop-shadow(0 0 0.5rem lightgrey);
+}
+
+.band-image {
+  height: 200px;
+  display: inline-block;
+  float: left;
+  padding-right: 20px;
+}
+
+.black-line {
+  border: 2px solid black;
+}
+
 input[type='checkbox'] {
     -webkit-appearance:none;
     width:30px!important;

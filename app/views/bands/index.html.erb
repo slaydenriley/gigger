@@ -2,34 +2,32 @@
   <h1 class="text-center">All Bands</h1>
 </div>
 
+<div class="index-data">
+<div class="band-create-link">
+  <% if can? :create, @band %>
+    <h4><%= link_to 'Create a New Band', "/bands/new" %></h4>
+    <p>To join an existing band, the band administrators must add you from their end.</p>
+    <% end %>
+</div>
 
-<div class="band-filter text-center">
+<div class="band-filter">
   <h5>Filter by Genre</h5>
   <%= form_tag(bands_path, method: :get) do %>
     <%= select_tag 'genre_id', options_for_select(@genres.collect{ |g| [g.name, g.id] }), prompt: "All" %>
     <%= submit_tag("Search", :class=>"search-button", :name=>"submit")%>
   <% end %>
 </div>
+</div>
 
+<hr class="black-line"/>
 
-<% @bands.each_slice(3) do |bands| %>
-  <div class="row band-row">
-    <% bands.each do |band| %>
-      <div class="card mt-5 text-center band-cards" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title band-title"> <%= band.name %></h5>
-          <p class="card-text"> <%= band.description %></p>
-          <a href="/bands/<%="#{band.id}"%>" class="btn btn-primary btn-band">Learn More</a>
-        </div>
-      </div>
-    <% end %>
+<div class="all-bands">
+<% @bands.each do |band| %>
+  <div class="bands">
+    <img src=<%= band.image_link %> alt="band-image" class="band-image"/>
+    <h2> <%= band.name %></h2>
+    <p class="card-text"> <%= band.description %></p>
+    <a href="/bands/<%="#{band.id}"%>" class="">Learn More</a>
   </div>
 <% end %>
-
-
-<div class="col text-center add-new-col">
-  <% if can? :create, @band %>
-    <h4><%= link_to 'Create a New Band', "/bands/new" %></h4>
-    <p>To join an existing band, the band administrators must add you from their end.</p>
-    <% end %>
 </div>

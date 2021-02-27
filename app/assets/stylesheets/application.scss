@@ -9,6 +9,14 @@
   color: #000;
 }
 
+.navbar-right {
+  float: right;
+}
+
+.navbar-toggler {
+  border: 2px solid white;
+}
+
 .band-members {
   width: 50%;
   margin: 0 auto;
@@ -24,6 +32,10 @@
 .band-members img {
   width: 200px;
   height: auto;
+}
+
+img {
+  filter: drop-shadow(0 0 0.5rem lightgrey);
 }
 
 .upcoming {

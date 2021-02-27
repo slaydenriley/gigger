@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(user.id)
       else
         flash[:error] = "Oops. That didn't work. Please try again."
-        redirect_to '/login'
+        redirect_to '/'
       end
     end
   end

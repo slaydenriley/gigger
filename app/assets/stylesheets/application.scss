@@ -14,6 +14,20 @@
   padding: 20px;
 }
 
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:30px!important;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+    cursor: pointer;
+}
+
+input[type='checkbox']:checked {
+    background: black;
+}
+
 .line {
   border: 1px solid black;
   width: 60%;
@@ -82,6 +96,11 @@ body {
   border-radius: 15px;
 }
 
+.home-links:hover {
+  transform: scale(1.02);
+  transition: 0.5s;
+}
+
 .edit-form {
   width: 70%;
 }
@@ -92,6 +111,10 @@ body {
 
 .home-links h3, .home-links hr, .edit-form h3 {
   color: white;
+}
+
+hr {
+  border: 2px solid white;
 }
 
 input, textarea {
@@ -207,7 +230,20 @@ input, textarea {
 }
 
 .error_explanation {
-  color: red;
+  filter: drop-shadow(0 0 0.75rem grey);
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 15px;
+  color: #f3f2ee;
+  font-weight: bold;
+  font-style: italic;
+  background: red;
+  text-align: center;
+}
+
+.error_explanation ul {
+  list-style-type: none
 }
 
 .user-body {

@@ -1,23 +1,16 @@
 <%= form_for @band do |f| %>
-  <%= f.label :name %><br/>
-  <%= f.text_field :name %><br/>
-  <br/>
-  <%= f.label :email %><br/>
-  <%= f.email_field :email %><br/>
-  <br/>
-  <%= f.label :description %><br/>
-  <%= f.text_area :description %><br/>
-  <br/>
-  <%= f.label :users, "Add Members (if they have an account)" %><br/>
+  <%= f.text_field :name, placeholder: "Band name" %>
+  <%= f.email_field :email, placeholder: "Band Email" %>
+  <%= f.text_area :description, placeholder: "Band Bio" %>
+  <h3>Add Members (if they have an account)</h3>
   <%= f.collection_check_boxes :user_ids, User.where(account_type: "band_member"), :id, :name, include_hidden: false %><br/>
   <br/>
   <h3>Select or Add New Genre</h3>
   <%= f.fields_for :genre do |genre| %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %><br/>
-    <br/>
-    <%= genre.label :name, 'Add new or enter manually' %><br/>
-    <%= genre.text_field :name %><br/>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
+    <%= genre.text_field :name, placeholder: "Add New Genre" %>
   <% end %>
   <br/>
   <%= f.submit "Create Band", class: 'btn btn-default'%>
 <% end %>
+<br/>

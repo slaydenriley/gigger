@@ -6,6 +6,7 @@
 <div class="band-create-link">
   <% if can? :create, @venue %>
     <h4><%= link_to 'Create a New Venue', "/venues/new" %></h4>
+    <p>If you are the manager of an existing venue, you will need to contact the venue administrators to add you.</p>
     <% end %>
 </div>
 

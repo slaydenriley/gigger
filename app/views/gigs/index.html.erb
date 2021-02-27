@@ -1,34 +1,24 @@
 <div class="col">
-  <h1 class="text-center">All Shows</h1>
+  <h1 class="text-center">Upcoming Shows</h1>
 </div>
 
-<div>
-  <% @gigs.each_slice(3) do |gigs| %>
-  <div class="row band-row">
-    <% gigs.each do |gig| %>
-    <div class="card mt-5 text-center band-cards" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title band-title"> <%= gig.name %></h5>
-        <a href="/gigs/<%="#{gig.id}"%>" class="btn btn-primary btn-band">Learn More</a>
-      </div>
-    </div>
-    <% end %>
-  </div>
-  <% end %>
-</div>
-
-<div class="col text-center add-new-col">
+<div class="index-data">
+<div class="band-create-link">
   <% if can? :create, @gig %>
-    <h4><%= link_to 'Add a New Gig', "/gigs/new" %></h4>
-  <% end %>
+    <h4><%= link_to 'Create a New Gig', "/gigs/new" %></h4>
+    <% end %>
+</div>
 </div>
 
-<div class="col calendar-col text-center">
-  <%= month_calendar events: @gigs do |date, gigs| %>
-    <%= date.day %>
-      <% gigs.each do |gig| %>
-        <%= link_to gig.name, gig_path(gig) %><br/>
-        <%= gig.date.strftime("%l:%M %p") %>
-      <% end %>
-  <% end %>
+<hr class="black-line"/>
+
+<div class="all-bands">
+<% @gigs.each do |gig| %>
+  <h2 class="gig-date"> <%= gig.date.strftime("%A, %d %b, %l:%M %p") %></h2>
+  <div class="bands">
+    <img src=<%= gig.band.image_link %> alt="band-image" class="band-image"/>
+    <h2> <%= gig.name %></h2>
+    <a href="/gigs/<%="#{gig.id}"%>" class="">Learn More</a>
+  </div>
+<% end %>
 </div>

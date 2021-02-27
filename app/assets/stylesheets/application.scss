@@ -34,7 +34,7 @@
 }
 
 .profile-image {
-  width: 200px;
+  width: 400px;
   padding: 20px;
 }
 
@@ -45,6 +45,11 @@
   border-top: 2px solid black;
   padding: 20px 0px;
   position: relative;
+}
+
+.gig-date {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .band-filter {

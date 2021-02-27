@@ -1,23 +1,39 @@
-<h1><%=@venue.name%></h1>
+<div class="account-page text-center">
+<div class="user-about">
+  <h1><%= @venue.name %></h1>
+  <img src=<%= @venue.image_link %> alt="band-image" class="profile-image"/>
+  <hr class="line"/>
+  <br/>
+  <p><em><%= @venue.description %></em></p>
+  <h5><%=mail_to(@venue.email)%></h5>
+</div>
 
-<p><%=@venue.description%></p>
 
-<h2>Venue Managers</h2>
-
-<% @venue.users.each do |user|%>
-  <li><%= link_to "#{user.name}", "/users/#{user.id}" %></li>
-<% end %>
-
-<h2>Upcoming Gigs:</h2>
-<% if !@venue.gigs.empty? %>
-  <% @venue.gigs.each do |gig| %>
-    <li><%= link_to gig.name, venue_gig_url(gig) %></li>
+  <div class="upcoming">
+    <h2>Upcoming Gigs</h2>
+    <% if !@venue.gigs.empty? %>
+      <% @venue.gigs.each do |gig| %>
+        <h5><li><%= link_to gig.name, gig_url(gig) %></li></h5>
+        <% end %>
+    <% else %>
+      <h5>This venue has no upcoming shows</h5>
     <% end %>
-<% else %>
-  <p>This venue has no upcoming shows</p>
-<% end %>
+  </div>
 
-<br/>
-<% if can? :update, @venue %><%= link_to 'Edit Venue', edit_venue_path(@venue) %><% end %>
-<br/>
-<% if can? :destroy, @venue %><%= link_to 'Delete', @venue, method: 'delete' %><% end %>
+  <div class="band-members">
+    <h2>Venue Managers</h2>
+  <% @venue.users.each do |user| %>
+    <div class="band-members-single">
+      <img src=<%= user.image %> alt="band-image" class="band-image"/>
+      <h2> <%= user.name %></h2>
+      <p class="card-text"> <%= user.description %></p>
+      <a href="/user/<%="#{user.id}"%>" class="">User Profile</a>
+    </div>
+  <% end %>
+  </div>
+  </div>
+
+<div class="text-center">
+  <% if can? :update, @venue %><%= button_to 'Edit Venue', edit_venue_path(@venue) %><% end %>
+  <% if can? :destroy, @venue %><%= button_to 'Delete', @venue, method: 'delete' %><% end %>
+</div>

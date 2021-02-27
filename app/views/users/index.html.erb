@@ -2,25 +2,26 @@
   <h1 class="text-center">All Users</h1>
 </div>
 
-<div class="band-filter text-center">
+<div class="index-data">
+
+<div class="band-filter">
   <h5>Filter by Account Type</h5>
   <%= form_tag(users_path, method: :get) do %>
     <%= select_tag(:option, options_for_select([["Band Members",1],["Venue Managers",2],["Concert Goers",3]], params[:option] ), prompt: "All") %>
     <%= submit_tag 'Search', :class=>"search-button" %>
   <% end %>
 </div>
+</div>
 
-<% @users.each_slice(3) do |users| %>
-  <div class="row band-row">
-    <% users.each do |user| %>
-        <div class="card mt-5 text-center band-cards" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title band-title"> <%= user.name %></h5>
-            <img src=<%= user.image %> alt="profile" class="profile-image"/>
-            <p class="card-text"> <%= user.description %></p>
-            <a href="/users/<%="#{user.id}"%>" class="btn btn-primary btn-band">View Profile</a>
-          </div>
-        </div>
-    <% end %>
+<hr class="black-line"/>
+
+<div class="all-bands">
+<% @users.each do |user| %>
+  <div class="bands">
+    <img src=<%= user.image %> alt="profile-image" class="band-image"/>
+    <h2> <%= user.name %></h2>
+    <p class="card-text"> <%= user.description %></p>
+    <a href="/users/<%="#{user.id}"%>" class="">Learn More</a>
   </div>
 <% end %>
+</div>

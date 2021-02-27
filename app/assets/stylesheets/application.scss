@@ -97,6 +97,17 @@ input[type='checkbox']:checked {
     background: black;
 }
 
+.action-buttons input {
+  padding: 3px;
+  background: white;
+  width: 200px;
+  display: inline;
+  margin: 0 auto 10;
+  text-align: center;
+  border: 1px solid black;
+  filter: drop-shadow(0 0 0.5rem lightgrey);
+}
+
 .line {
   border: 1px solid black;
   width: 60%;

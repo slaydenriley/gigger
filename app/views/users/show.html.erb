@@ -23,14 +23,14 @@
   </div>
 </div>
 
-<div class="text-center">
+<div class="text-center action-buttons">
   <% if @user == current_user || current_user.admin? %>
     <h2><u>Account Actions</u></h2>
     <% if can? :update, @user %>
-      <p><%= button_to 'Edit Account', edit_user_path(@user), method: "get" %></p>
+      <%= button_to 'Edit Account', edit_user_path(@user), method: "get" %>
     <% end %>
     <% if can? :destroy, @user %>
-      <p><%= button_to 'Delete', @user, method: :delete, data: { confirm: 'For real?' }  %></p>
+      <%= button_to 'Delete', @user, method: :delete, data: { confirm: 'For real?' }  %>
     <% end %>
 
   <% end %>

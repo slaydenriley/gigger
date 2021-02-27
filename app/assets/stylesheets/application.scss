@@ -9,6 +9,30 @@
   color: #000;
 }
 
+.band-members {
+  width: 50%;
+  margin: 0 auto;
+  float: right;
+}
+
+.band-members-single {
+  border-top: 2px solid black;
+  padding: 20px;
+  text-align: left;
+}
+
+.band-members img {
+  width: 200px;
+  height: auto;
+}
+
+.upcoming {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  float: left;
+}
+
 .profile-image {
   width: 200px;
   padding: 20px;
@@ -80,7 +104,7 @@ input[type='checkbox']:checked {
   filter: drop-shadow(0 0 0.5rem lightgrey);
   border-radius: 5px;
   margin-bottom: 40px;
-
+  overflow: hidden;
 }
 
 .user-about {
@@ -274,9 +298,6 @@ input, textarea {
   margin-bottom: 0px;
 }
 
-.band-members {
-  padding-top: 50px;
-}
 
 .error_explanation {
   filter: drop-shadow(0 0 0.75rem grey);

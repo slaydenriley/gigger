@@ -1,16 +1,16 @@
-<div class="text-center">
-  <h1><%=@band.name%></h1>
+<div class="account-page text-center">
+<div class="user-about">
+  <h1><%= @band.name %></h1>
+  <h5><em><%= @band.genre.name %></em></h5>
+  <img src=<%= @band.image_link %> alt="band-image" class="profile-image"/>
+  <hr class="line"/>
+  <br/>
+  <p><em><%= @band.description %></em></p>
+  <h5><%=mail_to(@band.email)%></h5>
 </div>
 
-<div class="row text-center">
-  <div class="col">
-    <h2>Genre</h2>
-    <h5><%= @band.genre.name %></h5>
-    <h2>Description</h2>
-    <h5><%=@band.description%></h5>
-  </div>
 
-  <div class="col">
+  <div class="upcoming">
     <h2>Upcoming Gigs</h2>
     <% if !@band.gigs.empty? %>
       <% @band.gigs.each do |gig| %>
@@ -20,25 +20,21 @@
       <h5>This band has no upcoming shows</h5>
     <% end %>
   </div>
-</div>
 
-
-<div class="band-members">
-  <h2 class="text-center">Band Members</h2>
-  <% @band.users.each_slice(3) do |users| %>
-    <div class="row band-row">
-      <% users.each do |user| %>
-        <div class="card mt-5 text-center band-cards" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title band-title"> <%= user.name %></h5>
-            <p class="card-text"> <%= user.description %></p>
-            <a href="/users/<%="#{user.id}"%>" class="btn btn-primary btn-band">Profile</a>
-          </div>
-        </div>
-      <% end %>
+  <div class="band-members">
+    <h2>Band Members</h2>
+  <% @band.users.each do |user| %>
+    <div class="band-members-single">
+      <img src=<%= user.image %> alt="band-image" class="band-image"/>
+      <h2> <%= user.name %></h2>
+      <p class="card-text"> <%= user.description %></p>
+      <a href="/user/<%="#{user.id}"%>" class="">User Profile</a>
     </div>
   <% end %>
-</div>
+  </div>
+  </div>
+
+
 
 <div class="text-center">
   <% if can? :update, @band %>

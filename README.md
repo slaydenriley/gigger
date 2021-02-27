@@ -4,6 +4,8 @@
 
 Gigger is a management system for bands and venues to keep track of upcoming shows. It also allows for concert-goers to view shows and details about bands and venues, as well as connect with other users. There are 3 main account types in Gigger: "Band Member," "Venue Manager," and "Concert-Goer." Each account type has different abilities and features.
 
+[LIVE DEMO](https://slayden-gigger.herokuapp.com/)
+
 ## Installation
 
 This app requires Ruby 2.3.1 and Rails 5.1.4.

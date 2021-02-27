@@ -71,7 +71,7 @@ body {
   font-weight: bolder;
 }
 
-.home-links {
+.home-links, .edit-form {
   padding-top: 20px;
   background: rgb(15,149,255);
   background: linear-gradient(180deg, rgba(15,149,255,1) 0%, rgba(52,107,195,1) 100%);
@@ -82,11 +82,19 @@ body {
   border-radius: 15px;
 }
 
-.home-links h3, .home-links hr {
+.edit-form {
+  width: 70%;
+}
+
+.edit-form input, .edit-form textarea {
+  width: 60%;
+}
+
+.home-links h3, .home-links hr, .edit-form h3 {
   color: white;
 }
 
-input {
+input, textarea {
   padding: 15px;
   font-size: 20px;
   width: 50%;
@@ -96,6 +104,11 @@ input {
 
 .or {
   padding-top: 50px;
+}
+
+.alert {
+  border: none;
+  border-radius: 0px;
 }
 
 .fb-button, .signup-button {
@@ -120,8 +133,9 @@ input {
 
 .alert-success {
   color: white;
-  background: rgb(21,255,21);
-  background: linear-gradient(233deg, rgba(21,255,21,1) 0%, rgba(7,61,32,1) 100%);
+  background: rgb(31,88,48);
+  background: linear-gradient(233deg, rgba(31,88,48,1) 0%, rgba(7,61,32,1) 100%);
+  border: none;
 }
 
 .navbar, .footer {

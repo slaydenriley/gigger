@@ -1,28 +1,15 @@
 <%= form_for @user do |f| %>
-  <%= f.label :name %><br/>
-  <%= f.text_field :name %><br/>
-  <br/>
-  <%= f.label :email %><br/>
-  <%= f.email_field :email %><br/>
-  <br/>
-  <%= f.label :description %><br/>
-  <%= f.text_area :description %><br/>
-  <br/>
-  <%= f.label :image %><br/>
-  <%= f.text_field :image %><br/>
-  <br/>
-  <%= f.label :password %><br/>
-  <%= f.password_field :password %><br/>
-  <br/>
-  <%= f.label :password_confirmation, "Confirm Password" %><br/>
-  <%= f.password_field :password_confirmation %>
-  <br/>
-  <%= f.label :account_type, 'Account Type' %><br/>
+  <%= f.text_field :name, placeholder: "Full Name"%><br/>
+  <%= f.email_field :email, placeholder: "Email" %><br/>
+  <%= f.text_area :description, placeholder: "Description" %><br/>
+  <%= f.text_field :image, placeholder: "Profile Image Link" %><br/>
+  <%= f.password_field :password, placeholder: "Password" %><br/>
+  <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br/>
+  <%= f.label :account_type, 'Account Type' %>
   <%= f.select :account_type, options_for_select([
     ["Band Member", "band_member"],
     ["Venue Manager", "venue_manager"],
-    ["Concert Goer", "concert_goer"]], @user.account_type) %>
-  <br/>
-  <br/>
-  <%= f.submit "Create Account", class: 'btn btn-default' %>
+    ["Concert Goer", "concert_goer"]], @user.account_type) %><br/>
+  <%= f.submit "Update", class: 'btn btn-default' %>
 <% end %>
+<br/>

@@ -2,7 +2,7 @@
 <h1>Gigger</h1>
 <p>A gig management system for bands and venues. A way for music lovers to find shows.</p>
 </div>
-![Gigger Gif](https://github.com/slaydenriley/gigger/blob/master/app/assets/images/gigger.gif)
+![Gigger Gif](https://github.com/slaydenriley/gigger/blob/master/app/assets/images/gigger.gif?raw=true)
 <div>
 <hr/>
 <p>

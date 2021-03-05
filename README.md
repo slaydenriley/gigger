@@ -1,6 +1,8 @@
-<h1 align="center">Gigger </h1>
-
 <div align="center">
+<h1>Gigger</h1>
+<p>A gig management system for bands and venues. A way for music lovers to find shows.</p>
+![Gigger](https://imgur.com/xNhjQnQ)
+<hr/>
 <p>
   Discover:
   <a href="https://www.youtube.com/watch?v=VQF_rvDoiSQ&t=17s&ab_channel=RileySlayden">Demo</a> | <a href="https://slayden-gigger.herokuapp.com/">Deployed App</a>

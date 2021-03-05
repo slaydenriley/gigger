@@ -1,9 +1,11 @@
 <h1 align="center">Gigger </h1>
 
+<div align="center">
 <p>
-  🧭Explore:
-  <a href="https://www.youtube.com/watch?v=VQF_rvDoiSQ&t=17s&ab_channel=RileySlayden">Demo</a> || <a href="https://slayden-gigger.herokuapp.com/">Deployed App</a>
+  Discover:
+  <a href="https://www.youtube.com/watch?v=VQF_rvDoiSQ&t=17s&ab_channel=RileySlayden">Demo</a> | <a href="https://slayden-gigger.herokuapp.com/">Deployed App</a>
   </p>
+</div>
 
 ## Description
 

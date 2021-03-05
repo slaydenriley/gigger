@@ -3,6 +3,8 @@
 <p>A gig management system for bands and venues. A way for music lovers to find shows.</p>
 </div>
 ![Gigger Gif](https://github.com/slaydenriley/gigger/blob/master/app/assets/images/gigger.gif?raw=true)
+<img max-height: 90% width="100%" src="./app/assets/images/gigger.gif" alt="Gigger gif">
+
 <div>
 <hr/>
 <p>

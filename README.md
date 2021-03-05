@@ -1,6 +1,11 @@
-# README
+<h1 align="center">Gigger </h1>
 
-## Overview
+<p>
+  🧭Explore:
+  <a href="https://www.youtube.com/watch?v=VQF_rvDoiSQ&t=17s&ab_channel=RileySlayden">Demo</a> || <a href="https://slayden-gigger.herokuapp.com/">Deployed App</a>
+  </p>
+
+## Description
 
 Gigger is a management system for bands and venues to keep track of upcoming shows. It also allows for concert-goers to view shows and details about bands and venues, as well as connect with other users. There are 3 main account types in Gigger: "Band Member," "Venue Manager," and "Concert-Goer." Each account type has different abilities and features.
 

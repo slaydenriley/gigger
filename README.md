@@ -1,7 +1,7 @@
 <div align="center">
 <h1>Gigger</h1>
 <p>A gig management system for bands and venues. A way for music lovers to find shows.</p>
-![Gigger](https://i.imgur.com/xNhjQnQ.gif)
+<blockquote class="imgur-embed-pub" lang="en" data-id="xNhjQnQ"><a href="https://imgur.com/xNhjQnQ">Gigger</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 <hr/>
 <p>
   Discover:

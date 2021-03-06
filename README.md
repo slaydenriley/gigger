@@ -26,7 +26,7 @@ Once you have Ruby 2.3.1 and Rails 5.1.4 installed,
 * ```bundle install```
 * ```rake db:migrate```
 * ```rake db:seed```
-* ```rails s```
+* ```thin start --ssl``` Thin start is necessary because FB login requires HTTPS
 * ```open browser to localhost:3000```
 * ```Sign up for an Account or Login/Create an Account using Facebook```
 

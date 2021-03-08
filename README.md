@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Gigger</h1>
+<h1>🎶 Gigger 🎶</h1>
 <p>A gig management system for bands and venues. A way for music lovers to find shows.</p>
 <img max-height: 90% width="100%" src="./app/assets/images/gigger.gif" alt="Gigger gif">
 <hr/>
@@ -12,6 +12,10 @@
 ## Description
 
 Gigger is a management system for bands and venues to keep track of upcoming shows. It also allows for concert-goers to view shows and details about bands and venues, as well as connect with other users. There are 3 main account types in Gigger: "Band Member," "Venue Manager," and "Concert-Goer." Each account type has different abilities and features.
+
+## Inspiration
+
+While building this project, I was still a professional touring banjo player. I was inspired to create a system which would help us keep track of our upcoming shows and venues. Of course, the music collapse of 2020 hit (COVID) and we were never actually able to use this application. Regardless, I had fun building something that I could use in real life, and this project helped me build some fundamental Rails knowledge.
 
 ## Installation
 

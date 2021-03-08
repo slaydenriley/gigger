@@ -33,8 +33,8 @@ Once you have Ruby 2.3.1 and Rails 5.1.4 installed,
 * ```Sign up for an Account or Login/Create an Account using Facebook```
 
 ## Contact
-👨‍💻 [LinkedIn](https://linkedin.com/in/rileyslayden)
-‍💻 [Portfolio](https://www.rileyslayden.com)
+👨‍💻 [LinkedIn](https://linkedin.com/in/rileyslayden) <br/>
+‍💻 [Portfolio](https://www.rileyslayden.com) <br/>
 📧 Email: slaydenriley@gmail.com
 
 ## Contributing

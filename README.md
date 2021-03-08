@@ -32,6 +32,11 @@ Once you have Ruby 2.3.1 and Rails 5.1.4 installed,
 * ```open browser to localhost:3000```
 * ```Sign up for an Account or Login/Create an Account using Facebook```
 
+## Contact
+👨‍💻 [LinkedIn](https://linkedin.com/in/rileyslayden)
+‍💻 [Portfolio](https://www.rileyslayden.com)
+📧 Email: slaydenriley@gmail.com
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at  https://github.com/slaydenriley/gigger. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
